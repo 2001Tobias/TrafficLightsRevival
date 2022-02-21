@@ -28,7 +28,6 @@ const defaultNewSensor: Sensor = {
   },
   mappingIds: [],
   unit: undefined,
-  sensorsTextSize: 25,
   decimals: 2,
   valueBlink: false,
   backgroundBlink: false,

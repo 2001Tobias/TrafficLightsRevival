@@ -130,18 +130,6 @@ export const EditorSensorItem: React.FC<Props> = (props: Props) => {
         </ColorPicker>
       </Field>
 
-      <Field label="Size">
-        <Input
-          value={sensor.sensorsTextSize}
-          type="number"
-          onChange={(event) => {
-            updateSensor((sensor) => {
-              sensor.sensorsTextSize = Number.parseInt(event.currentTarget.value, 10);
-            });
-          }}
-        />
-      </Field>
-
       <Field label="Decimals">
         <Input
           value={sensor.decimals}
