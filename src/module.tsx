@@ -30,31 +30,10 @@ export const plugin = new PanelPlugin<SimpleOptions>(ImageItPanel)
         category: ['Sensors'],
       })
       .addNumberInput({
-        path: 'sensorsColorGray',
-        name: 'Gray Color Value',
-        description: 'Value of Sensor Color Gray. Default 0',
-        defaultValue: 0,
-        category: ['Sensors'],
-      })
-      .addNumberInput({
-        path: 'sensorsColorRed',
-        name: 'Red Color Value',
-        description: 'Value of Sensor Color Red. Default 1',
-        defaultValue: 1,
-        category: ['Sensors'],
-      })
-      .addNumberInput({
-        path: 'sensorsColorYellow',
-        name: 'Yellow Color Value',
-        description: 'Value of Sensor Color Yellow. Default 2',
-        defaultValue: 2,
-        category: ['Sensors'],
-      })
-      .addNumberInput({
-        path: 'sensorsColorGreen',
-        name: 'Green Color Value',
-        description: 'Value of Sensor Color Green. Default 3',
-        defaultValue: 3,
+        path: 'sensorsTextSize',
+        name: 'Sensors text size',
+        description: 'Default sensors text size. Default 25.',
+        defaultValue: 25,
         category: ['Sensors'],
       })
       .addCustomEditor({
