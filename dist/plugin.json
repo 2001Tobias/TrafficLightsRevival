@@ -1,15 +1,19 @@
 {
   "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
   "type": "panel",
-  "name": "TrafficLightsRevival",
+  "name": "traffic-lights-revival",
   "id": "tobias2001-trafficlightsrevival-panel",
   "info": {
-    "description": "",
+    "description": "A plugin to visualize values with colors in the Traffic Lights Style",
     "author": {
       "name": "Tobias Indenkämpen",
-      "url": "https://github.com/TobiasI2001"
+      "url": "https://community.grafana.com/u/tobias2001/summary"
     },
-    "keywords": ["traffic_light", "panel"],
+    "keywords": [
+      "Panel",
+      "TrafficLights",
+      "Color Visualization"
+    ],
     "logos": {
       "small": "img/TrafficLightsRevival_Logo.png",
       "large": "img/TrafficLightsRevival_Logo.png"
@@ -17,24 +21,19 @@
     "links": [
       {
         "name": "Website",
-        "url": "https://github.com/TobiasI2001/TrafficLightsRevival"
+        "url": "https://github.com/grafana/grafana-starter-panel"
       },
       {
         "name": "License",
-        "url": "https://github.com/TobiasI2001/TrafficLightsRevival/blob/master/LICENSE"
+        "url": "https://github.com/grafana/grafana-starter-panel/blob/master/LICENSE"
       }
     ],
-	"screenshots": [
-      {
-        "name": "Sensors",
-        "path": "img/TrafficLightsRevival_Screenshot.png"
-      }
-    ],
-    "version": "1.1.0",
-    "updated": "2021-09-27"
+    "screenshots": [],
+    "version": "1.0.0",
+    "updated": "2022-09-01"
   },
   "dependencies": {
-    "grafanaDependency": ">=8.0.0",
+    "grafanaDependency": ">=7.0.0",
     "plugins": []
   }
 }

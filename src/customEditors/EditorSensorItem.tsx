@@ -1,10 +1,9 @@
 import React from 'react';
 import { Input, ColorPicker, Switch, Field, HorizontalGroup, IconButton, UnitPicker, Button } from '@grafana/ui';
 import Sensor from '../types/Sensor';
-
 import produce from 'immer';
 import { ColorDot } from 'components/ColorDot';
-import { MappingsInput } from 'components/MappingsInput';
+import { MappingInput } from 'components/MappingInput';
 
 interface Props {
   sensor: Sensor;
@@ -26,7 +25,7 @@ export const EditorSensorItem: React.FC<Props> = (props: Props) => {
     <>
       <HorizontalGroup>
         Sensor {props.index + 1}
-        <IconButton name="trash-alt" size="sm" surface="header" onClick={() => onDelete(index)} />
+        <IconButton name="trash-alt" size="sm" onClick={() => onDelete(index)} />
       </HorizontalGroup>
 
       {/* <HorizontalGroup> */}
@@ -57,7 +56,7 @@ export const EditorSensorItem: React.FC<Props> = (props: Props) => {
         label="Mapping IDs"
         description="Select IDs of mappings you want to use for this sensor. First valid mapping will be applied. List can be reordered by dragging."
       >
-        <MappingsInput
+        <MappingInput
           mappings={sensor.mappingIds}
           onChange={(mappings) => {
             updateSensor((sensor) => {
@@ -120,7 +119,6 @@ export const EditorSensorItem: React.FC<Props> = (props: Props) => {
               sensor.fontColor = color;
             });
           }}
-          enableNamedColors
         >
           {({ ref, showColorPicker, hideColorPicker }) => (
             <Button ref={ref} onMouseLeave={hideColorPicker} onClick={showColorPicker} variant="secondary">
@@ -129,6 +127,7 @@ export const EditorSensorItem: React.FC<Props> = (props: Props) => {
           )}
         </ColorPicker>
       </Field>
+      {/* </HorizontalGroup> */}
 
       <Field label="Size">
         <Input

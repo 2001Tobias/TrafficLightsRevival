@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { clone, merge } from 'lodash';
+import { clone} from 'lodash';
 import { css, cx, keyframes } from 'emotion';
 import Draggable, { DraggableEvent, DraggableData, ControlPosition } from 'react-draggable';
 import { stylesFactory } from '@grafana/ui';
 import SensorType from './types/Sensor';
-import MappingOperators from 'MappingOperators';
 import { Mapping } from 'types/Mapping';
 import { formattedValueToString, getValueFormat } from '@grafana/data';
-// import SensorColor from './types/SimpleOptions';
 
 type Props = {
   sensorscolorgray: number;
@@ -38,8 +36,7 @@ const percToPx = (perc: number, size: number): number => {
 };
 
 export const Sensor: React.FC<Props> = (props: Props) => {
-  // const theme = useTheme();
-  const { draggable, imageDimensions, onPositionChange, index, link, name, mappings, sensorscolorgray, sensorscolorred, sensorscoloryellow, sensorscolorgreen, sensorsTextSize } = props;
+  const { draggable, imageDimensions, onPositionChange, index, link, name, sensorscolorgray, sensorscolorred, sensorscoloryellow, sensorscolorgreen, sensorsTextSize } = props;
   let sensor = clone(props.sensor) as SensorType & Mapping['values'];
   let value = clone(props.value);
 
@@ -61,35 +58,19 @@ export const Sensor: React.FC<Props> = (props: Props) => {
     y: percToPx(sensor.position.y, imageDimensions.height),
   };
 
-  for (let mapping of mappings) {
-    const mappingOperator = MappingOperators.find((mappingOperator) => mapping.operator === mappingOperator.id);
-
-    // Apply mapping function if it satisfies requirements
-    const isOverrode = mappingOperator?.function(value, mapping.compareTo);
-
-    if (isOverrode) {
-      sensor = merge(sensor, mapping.values);
-      value = mapping.values.overrideValue ? mapping.values.overrideValue : value;
-
-      delete sensor.overrideValue;
-      // Stop at first valid mapping
-      break;
-    }
-  }
-
-  if (value == sensorscolorgray) {
+  if (value === sensorscolorgray) {
     sensor.backgroundColor = "gray";
   }
 
-  if (value == sensorscolorred) {
+  if (value === sensorscolorred) {
     sensor.backgroundColor = "red";
   }
 
-  if (value == sensorscoloryellow) {
+  if (value === sensorscoloryellow) {
     sensor.backgroundColor = "yellow";
   }
 
-  if (value == sensorscolorgreen) {
+  if (value === sensorscolorgreen) {
     sensor.backgroundColor = "green";
   }
 
@@ -107,7 +88,7 @@ export const Sensor: React.FC<Props> = (props: Props) => {
       {sensor.visible && (
         <Draggable
           disabled={draggable}
-          bounds="#imageItBgImage"
+          bounds="#TrafficLightsRevivalBgImage"
           handle=".handle"
           onStop={onDragStop}
           position={sensorPosition}
@@ -127,6 +108,24 @@ export const Sensor: React.FC<Props> = (props: Props) => {
             onMouseLeave={() => setIsMouseOver(false)}
           >
 
+            {draggable && isMouseOver && (
+              <div className={cx(styles.handle, 'handle')}>
+                <div className={cx(styles.content)}>
+                  <a
+                  className={css`
+                    color: ${sensor.fontColor};
+                  `}
+                  href={link || '#'}
+                  >
+                  <div className={cx(styles.name)}>{name}</div>
+                  <div className={cx(styles.value, sensor.valueBlink && styles.blink, sensor.bold && styles.bold)}>
+                    {formattedValueString}
+                  </div>
+                  </a>
+                </div>
+              </div>
+            )}
+
             {!draggable && isMouseOver && (
               <div className={cx(styles.handle, 'handle')}>
                 <div className="fa fa-bars" />
@@ -139,7 +138,7 @@ export const Sensor: React.FC<Props> = (props: Props) => {
                     >
                     <div className={cx(styles.name)}>{name}</div>
                     <div className={cx(styles.value, sensor.valueBlink && styles.blink, sensor.bold && styles.bold)}>
-                        {formattedValueString}
+                      {formattedValueString}
                     </div>
                   </a>
                 </div>

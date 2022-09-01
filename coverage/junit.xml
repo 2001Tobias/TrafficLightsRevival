@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="1" failures="0" time="3.517">
-  <testsuite name="Migration handler" errors="0" failures="0" skipped="0" timestamp="2022-01-11T12:32:39" time="2.531" tests="1">
-    <testcase classname="Migration handler when migrating to a newer version should change mappingId correctly" name="Migration handler when migrating to a newer version should change mappingId correctly" time="0.003">
-    </testcase>
-  </testsuite>
-</testsuites>

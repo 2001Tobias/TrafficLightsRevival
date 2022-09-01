@@ -1,7 +1,7 @@
 {
-  "name": "traffic-lights-revival-traffic-lights-revival",
-  "version": "1.1.0",
-  "description": "",
+  "name": "tobias-2001-traffic-lights-revival",
+  "version": "v1.2.0",
+  "description": "A plugin to visualize values with colors in the Traffic Lights Style",
   "scripts": {
     "build": "grafana-toolkit plugin:build",
     "test": "grafana-toolkit plugin:test",
@@ -14,7 +14,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@grafana/data": "latest",
-    "@grafana/toolkit": "^8.2.7",
+    "@grafana/toolkit": "latest",
     "@grafana/ui": "latest",
     "emotion": "10.0.27"
   },
@@ -22,11 +22,8 @@
     "node": ">=14"
   },
   "dependencies": {
-    "@types/lodash": "^4.14.178",
-    "iodash": "^0.0.1-security",
-    "lodash": "^4.17.21",
-    "react-draggable": "^4.4.4",
-    "react-sortablejs": "^6.0.0",
-    "sortablejs": "^1.14.0"
+    "react-draggable": "^4.4.5",
+    "react-sortablejs": "^6.1.4",
+    "sortablejs": "^1.15.0"
   }
 }

@@ -4,7 +4,7 @@ import { stylesFactory, Button, useTheme } from '@grafana/ui';
 import { GrafanaTheme, SelectableValue } from '@grafana/data';
 import { EditorMappingItem } from './EditorMappingItem';
 import { Mapping } from 'types/Mapping';
-import MappingOperators from 'MappingOperators';
+import MappingOperators from 'MappingOperator';
 
 interface Props {
   mappings: Mapping[];

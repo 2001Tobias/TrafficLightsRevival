@@ -1,20 +1,18 @@
 import React from 'react';
 import { PanelPlugin } from '@grafana/data';
 import { SimpleOptions } from './types/SimpleOptions';
-import { ImageItPanel } from './ImageItPanel';
+import { TrafficLightsRevivalPanel } from './TrafficLightsRevivalPanel';
 import { EditorSensorList } from 'customEditors/EditorSensorList';
 import { EditorMappingList } from 'customEditors/EditorMappingList';
-import { migrationHandler } from './migrationHandler';
 
-export const plugin = new PanelPlugin<SimpleOptions>(ImageItPanel)
-  .setMigrationHandler(migrationHandler)
+export const plugin = new PanelPlugin<SimpleOptions>(TrafficLightsRevivalPanel)
   .setPanelOptions((builder) => {
     const panelOptionsBuilder = builder
       .addTextInput({
         path: 'imageUrl',
         name: 'Image URL',
         description: 'URL of background image',
-        defaultValue: 'https://i.ibb.co/tLXrjb6/imageit.png',
+        defaultValue: 'false',
       })
       .addBooleanSwitch({
         path: 'forceImageRefresh',

@@ -1,24 +1,24 @@
 type Sensor = {
-  visible: boolean;
-  name: string;
-  query: {
-    id: string;
-    alias: string;
+    visible: boolean;
+    name: string;
+    query: {
+      id: string;
+      alias: string;
+    };
+    backgroundColor: string;
+    fontColor: string;
+    bold: boolean;
+    valueBlink: boolean;
+    backgroundBlink: boolean;
+    link: string;
+    position: {
+      x: number;
+      y: number;
+    };
+    mappingIds: string[];
+    unit: string | undefined;
+    sensorsTextSize: number;
+    decimals: number;
   };
-  backgroundColor: string;
-  fontColor: string;
-  bold: boolean;
-  valueBlink: boolean;
-  backgroundBlink: boolean;
-  link: string;
-  position: {
-    x: number;
-    y: number;
-  };
-  mappingIds: string[];
-  unit: string | undefined;
-  sensorsTextSize: number;
-  decimals: number;
-};
-
-export default Sensor;
+  
+  export default Sensor;  

@@ -27,7 +27,7 @@ export const EditorMappingItem: React.FC<Props> = (props: Props) => {
     <>
       <HorizontalGroup>
         Mapping {index + 1}
-        <IconButton name="trash-alt" size="sm" surface="header" onClick={() => onDelete(index)} />
+        <IconButton name="trash-alt" size="sm" onClick={() => onDelete(index)} />
       </HorizontalGroup>
 
       <Field label="ID">

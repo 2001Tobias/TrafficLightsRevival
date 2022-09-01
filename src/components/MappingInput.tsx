@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { ReactSortable } from 'react-sortablejs';
 import { uniqueId } from 'lodash';
 
-interface MappingsInputProps {
+interface MappingInputProps {
   mappings: string[];
   onChange: (mappings: string[]) => void;
 }
@@ -16,15 +16,15 @@ interface MappingProps {
 const Mapping: React.FC<MappingProps> = ({ mapping, onDelete }: MappingProps) => {
   return (
     <ButtonGroup>
-      <Button icon="times" variant="link" size="sm" onClick={onDelete} />
-      <Button variant="link" size="sm">
+      <Button icon="times" size="sm" onClick={onDelete} />
+      <Button size="sm">
         {mapping}
       </Button>
     </ButtonGroup>
   );
 };
 
-export const MappingsInput: React.FC<MappingsInputProps> = ({ mappings, onChange }: MappingsInputProps) => {
+export const MappingInput: React.FC<MappingInputProps> = ({ mappings, onChange }: MappingInputProps) => {
   const [newMapping, setNewMapping] = useState('');
 
   const addMapping = () => {

@@ -1,97 +1,1085 @@
-define(["@grafana/data","@grafana/ui","emotion","lodash","react","react-dom"], function(__WEBPACK_EXTERNAL_MODULE__grafana_data__, __WEBPACK_EXTERNAL_MODULE__grafana_ui__, __WEBPACK_EXTERNAL_MODULE_emotion__, __WEBPACK_EXTERNAL_MODULE_lodash__, __WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_react_dom__) { return /******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./module.tsx");
-/******/ })
-/************************************************************************/
-/******/ ({
+define(["@grafana/data","@grafana/ui","emotion","lodash","react","react-dom"], (__WEBPACK_EXTERNAL_MODULE__grafana_data__, __WEBPACK_EXTERNAL_MODULE__grafana_ui__, __WEBPACK_EXTERNAL_MODULE_emotion__, __WEBPACK_EXTERNAL_MODULE_lodash__, __WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_react_dom__) => { return /******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./MappingOperator.ts":
+/*!****************************!*\
+  !*** ./MappingOperator.ts ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function isEqualTo(a, b) {
+  // eslint-disable-next-line
+  return a !== undefined && b !== undefined ? a == b : false;
+}
+
+function isGreaterThan(a, b) {
+  return a !== undefined && b !== undefined ? a > b : false;
+}
+
+function isSmallerThan(a, b) {
+  return a !== undefined && b !== undefined ? a < b : false;
+}
+
+function isNotEqualTo(a, b) {
+  return !isEqualTo(a, b);
+}
+
+var MappingOperators = [{
+  id: 'equal',
+  operator: '=',
+  "function": isEqualTo,
+  description: 'Check if the two values are equal'
+}, {
+  id: 'notEqual',
+  operator: '!=',
+  "function": isNotEqualTo,
+  description: 'Check if the two values are not equal'
+}, {
+  id: 'greaterThan',
+  operator: '>',
+  "function": isGreaterThan
+}, {
+  id: 'smallerThan',
+  operator: '<',
+  "function": isSmallerThan
+}];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MappingOperators);
+
+/***/ }),
+
+/***/ "./Sensor.tsx":
+/*!********************!*\
+  !*** ./Sensor.tsx ***!
+  \********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Sensor": () => (/* binding */ Sensor)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var emotion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! emotion */ "emotion");
+/* harmony import */ var emotion__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(emotion__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_draggable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-draggable */ "../node_modules/react-draggable/build/cjs/cjs.js");
+/* harmony import */ var react_draggable__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_draggable__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @grafana/ui */ "@grafana/ui");
+/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_grafana_ui__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _grafana_data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @grafana/data */ "@grafana/data");
+/* harmony import */ var _grafana_data__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_grafana_data__WEBPACK_IMPORTED_MODULE_5__);
+var _templateObject, _templateObject2, _div, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+var pxToPerc = function pxToPerc(px, size) {
+  return px * 100 / size;
+};
+
+var percToPx = function percToPx(perc, size) {
+  return perc * size / 100;
+};
+
+var Sensor = function Sensor(props) {
+  var draggable = props.draggable,
+      imageDimensions = props.imageDimensions,
+      onPositionChange = props.onPositionChange,
+      index = props.index,
+      link = props.link,
+      name = props.name,
+      sensorscolorgray = props.sensorscolorgray,
+      sensorscolorred = props.sensorscolorred,
+      sensorscoloryellow = props.sensorscoloryellow,
+      sensorscolorgreen = props.sensorscolorgreen,
+      sensorsTextSize = props.sensorsTextSize;
+  var sensor = (0,lodash__WEBPACK_IMPORTED_MODULE_1__.clone)(props.sensor);
+  var value = (0,lodash__WEBPACK_IMPORTED_MODULE_1__.clone)(props.value);
+  var styles = getStyles();
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      isMouseOver = _useState2[0],
+      setIsMouseOver = _useState2[1];
+
+  var onDragStop = function onDragStop(_event, data) {
+    var newPosition = {
+      x: pxToPerc(data.x, imageDimensions.width),
+      y: pxToPerc(data.y, imageDimensions.height)
+    };
+    onPositionChange(newPosition, index);
+  };
+
+  var sensorPosition = {
+    x: percToPx(sensor.position.x, imageDimensions.width),
+    y: percToPx(sensor.position.y, imageDimensions.height)
+  };
+
+  if (value === sensorscolorgray) {
+    sensor.backgroundColor = "gray";
+  }
+
+  if (value === sensorscolorred) {
+    sensor.backgroundColor = "red";
+  }
+
+  if (value === sensorscoloryellow) {
+    sensor.backgroundColor = "yellow";
+  }
+
+  if (value === sensorscolorgreen) {
+    sensor.backgroundColor = "green";
+  } // Get and apply unit type formatter
+
+
+  var unit = sensor.unit;
+  var valueFormatter = (0,_grafana_data__WEBPACK_IMPORTED_MODULE_5__.getValueFormat)(unit);
+  var formattedValue = valueFormatter(value, sensor.decimals);
+  var formattedValueString = value !== undefined ? (0,_grafana_data__WEBPACK_IMPORTED_MODULE_5__.formattedValueToString)(formattedValue) : 'No data';
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, sensor.visible && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react_draggable__WEBPACK_IMPORTED_MODULE_3___default()), {
+    disabled: draggable,
+    bounds: "#TrafficLightsRevivalBgImage",
+    handle: ".handle",
+    onStop: onDragStop,
+    position: sensorPosition
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.cx)(styles.container, (0,emotion__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n                color: ", ";\n                background-color: ", ";\n                border-radius: 50%;\n                font-size: ", "px;\n              "])), sensor.fontColor, sensor.backgroundColor, sensorsTextSize * imageDimensions.width / 50 / 10), sensor.backgroundBlink && styles.blink),
+    onMouseEnter: function onMouseEnter() {
+      return setIsMouseOver(true);
+    },
+    onMouseLeave: function onMouseLeave() {
+      return setIsMouseOver(false);
+    }
+  }, draggable && isMouseOver && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.cx)(styles.handle, 'handle')
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.cx)(styles.content)
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    className: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n                    color: ", ";\n                  "])), sensor.fontColor),
+    href: link || '#'
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.cx)(styles.name)
+  }, name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.cx)(styles.value, sensor.valueBlink && styles.blink, sensor.bold && styles.bold)
+  }, formattedValueString)))), !draggable && isMouseOver && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.cx)(styles.handle, 'handle')
+  }, _div || (_div = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "fa fa-bars"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.cx)(styles.content)
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    className: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n                      color: ", ";\n                    "])), sensor.fontColor),
+    href: link || '#'
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.cx)(styles.name)
+  }, name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.cx)(styles.value, sensor.valueBlink && styles.blink, sensor.bold && styles.bold)
+  }, formattedValueString)))))));
+};
+var blink = (0,emotion__WEBPACK_IMPORTED_MODULE_2__.keyframes)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  50% {\n    opacity: 0;\n  }\n"])));
+var getStyles = (0,_grafana_ui__WEBPACK_IMPORTED_MODULE_4__.stylesFactory)(function () {
+  return {
+    container: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n      position: absolute;\n      padding: 0.5em;\n    "]))),
+    handle: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n      float: right;\n      margin-left: 0.5em;\n    "]))),
+    content: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n      float: left;\n    "]))),
+    name: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n      font-size: 0.5em;\n    "]))),
+    value: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral([""]))),
+    blink: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n      animation: ", " 1s linear infinite;\n    "])), blink),
+    bold: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["\n      font-weight: bold;\n    "])))
+  };
+});
+
+/***/ }),
+
+/***/ "./TrafficLightsRevivalPanel.tsx":
+/*!***************************************!*\
+  !*** ./TrafficLightsRevivalPanel.tsx ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "TrafficLightsRevivalPanel": () => (/* binding */ TrafficLightsRevivalPanel)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _grafana_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @grafana/data */ "@grafana/data");
+/* harmony import */ var _grafana_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_grafana_data__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var emotion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! emotion */ "emotion");
+/* harmony import */ var emotion__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(emotion__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @grafana/ui */ "@grafana/ui");
+/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_grafana_ui__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _Sensor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Sensor */ "./Sensor.tsx");
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+var TrafficLightsRevivalPanel = function TrafficLightsRevivalPanel(_ref) {
+  var options = _ref.options,
+      data = _ref.data,
+      width = _ref.width,
+      height = _ref.height,
+      onOptionsChange = _ref.onOptionsChange,
+      fieldConfig = _ref.fieldConfig,
+      replaceVariables = _ref.replaceVariables;
+  var forceImageRefresh = options.forceImageRefresh,
+      lockSensors = options.lockSensors,
+      mappings = options.mappings,
+      sensors = options.sensors,
+      sensorsColorGray = options.sensorsColorGray,
+      sensorsColorRed = options.sensorsColorRed,
+      sensorsColorYellow = options.sensorsColorYellow,
+      sensorsColorGreen = options.sensorsColorGreen;
+  var theme = (0,_grafana_ui__WEBPACK_IMPORTED_MODULE_4__.useTheme2)();
+  var styles = getStyles();
+  var imageRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    height: 0,
+    width: 0
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      imageDimensions = _useState2[0],
+      setImageDimensions = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(options.imageUrl),
+      _useState4 = _slicedToArray(_useState3, 2),
+      imageUrl = _useState4[0],
+      setImageUrl = _useState4[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (forceImageRefresh) {
+      setImageUrl("".concat(options.imageUrl, "?").concat((0,lodash__WEBPACK_IMPORTED_MODULE_3__.uniqueId)()));
+    } else {
+      setImageUrl(options.imageUrl);
+    }
+  }, [data, options.imageUrl, forceImageRefresh]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    setImageDimensions({
+      height: imageRef.current.offsetHeight,
+      width: imageRef.current.offsetWidth
+    });
+  }, [width, height]);
+
+  var onImageLoad = function onImageLoad(_ref2) {
+    var image = _ref2.target;
+    setImageDimensions({
+      height: image.offsetHeight,
+      width: image.offsetWidth
+    });
+  };
+
+  var onSensorPositionChange = function onSensorPositionChange(position, index) {
+    var newOptions = (0,lodash__WEBPACK_IMPORTED_MODULE_3__.cloneDeep)(options);
+    newOptions.sensors[index].position = position;
+    onOptionsChange(newOptions);
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: styles.wrapper
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: "TrafficLightsRevivalBgImage",
+    className: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.cx)(styles.imageWrapper, (0,emotion__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n            max-height: ", "px;\n          "])), height))
+  }, sensors && sensors.map(function (sensor, index) {
+    var serie = data.series.find(function (serie) {
+      return sensor.query.id ? sensor.query.id === serie.refId : sensor.query.alias === serie.name;
+    });
+    var value = undefined;
+
+    if (serie !== undefined) {
+      var fieldDisplay = (0,_grafana_data__WEBPACK_IMPORTED_MODULE_1__.getFieldDisplayValues)({
+        data: [serie],
+        reduceOptions: {
+          calcs: [_grafana_data__WEBPACK_IMPORTED_MODULE_1__.ReducerID.last]
+        },
+        fieldConfig: fieldConfig,
+        replaceVariables: replaceVariables,
+        theme: theme
+      })[0];
+      value = fieldDisplay.display.numeric;
+    }
+
+    var sensorMappings = sensor.mappingIds.map(function (mappingId) {
+      return mappings.find(function (mapping) {
+        return mappingId === mapping.id;
+      });
+    }).filter(function (mapping) {
+      return typeof mapping !== 'undefined';
+    });
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Sensor__WEBPACK_IMPORTED_MODULE_5__.Sensor, {
+      sensorscolorgray: sensorsColorGray,
+      sensorscolorred: sensorsColorRed,
+      sensorscoloryellow: sensorsColorYellow,
+      sensorscolorgreen: sensorsColorGreen,
+      draggable: lockSensors,
+      sensor: sensor,
+      mappings: sensorMappings,
+      index: index,
+      link: replaceVariables(sensor.link),
+      name: replaceVariables(sensor.name),
+      imageDimensions: imageDimensions,
+      onPositionChange: onSensorPositionChange,
+      value: value,
+      key: index,
+      sensorsTextSize: sensor.sensorsTextSize
+    });
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.cx)(styles.bgImage, (0,emotion__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n              max-height: ", "px;\n            "])), height)),
+    src: imageUrl,
+    ref: imageRef,
+    onLoad: onImageLoad,
+    draggable: "false"
+  })));
+};
+var getStyles = (0,_grafana_ui__WEBPACK_IMPORTED_MODULE_4__.stylesFactory)(function () {
+  return {
+    wrapper: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n      width: 100%;\n      height: 100%;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n    "]))),
+    imageWrapper: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n      position: relative;\n      display: inline-block;\n      max-width: 100%;\n    "]))),
+    bgImage: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n      max-width: 100%;\n    "]))),
+    textBox: (0,emotion__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n      position: absolute;\n      bottom: 0;\n      left: 0;\n      padding: 10px;\n    "])))
+  };
+});
+
+/***/ }),
+
+/***/ "./components/ColorDot.tsx":
+/*!*********************************!*\
+  !*** ./components/ColorDot.tsx ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ColorDot": () => (/* binding */ ColorDot)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+ // Can be used to display current color
+
+var ColorDot = function ColorDot(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      height: '10px',
+      width: '10px',
+      backgroundColor: props.color,
+      borderRadius: '50%',
+      display: 'inline-block'
+    }
+  });
+};
+
+/***/ }),
+
+/***/ "./components/MappingInput.tsx":
+/*!*************************************!*\
+  !*** ./components/MappingInput.tsx ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "MappingInput": () => (/* binding */ MappingInput)
+/* harmony export */ });
+/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @grafana/ui */ "@grafana/ui");
+/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_grafana_ui__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_sortablejs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-sortablejs */ "../node_modules/react-sortablejs/dist/index.js");
+/* harmony import */ var react_sortablejs__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_sortablejs__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var Mapping = function Mapping(_ref) {
+  var mapping = _ref.mapping,
+      onDelete = _ref.onDelete;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_0__.ButtonGroup, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_0__.Button, {
+    icon: "times",
+    size: "sm",
+    onClick: onDelete
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_0__.Button, {
+    size: "sm"
+  }, mapping));
+};
+
+var MappingInput = function MappingInput(_ref2) {
+  var mappings = _ref2.mappings,
+      onChange = _ref2.onChange;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+      _useState2 = _slicedToArray(_useState, 2),
+      newMapping = _useState2[0],
+      setNewMapping = _useState2[1];
+
+  var addMapping = function addMapping() {
+    var mapping = newMapping.trim();
+
+    if (mapping.length === 0) {
+      return;
+    }
+
+    onChange(mappings.concat(mapping));
+    setNewMapping('');
+  };
+
+  var deleteMapping = function deleteMapping(index) {
+    var newMappings = mappings.filter(function (mapping, i) {
+      return i !== index;
+    });
+    onChange(newMappings);
+  };
+
+  var addonAfter = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_0__.Button, {
+    variant: "secondary",
+    onClick: addMapping
+  }, "Add");
+  var sortableMappings = mappings.map(function (mapping) {
+    return {
+      id: (0,lodash__WEBPACK_IMPORTED_MODULE_3__.uniqueId)('mapping'),
+      value: mapping
+    };
+  });
+
+  var handleKeyPress = function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      addMapping();
+    }
+  };
+
+  var invalidMapping = function invalidMapping() {
+    return mappings.includes(newMapping) || newMapping.length === 0;
+  };
+
+  var generateErrorMessage = function generateErrorMessage() {
+    if (mappings.includes(newMapping)) {
+      return "".concat(newMapping, " is already in the list");
+    }
+
+    return '';
+  };
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(sortableMappings),
+      _useState4 = _slicedToArray(_useState3, 2),
+      state = _useState4[0],
+      setState = _useState4[1];
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement((react__WEBPACK_IMPORTED_MODULE_1___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_sortablejs__WEBPACK_IMPORTED_MODULE_2__.ReactSortable, {
+    list: state,
+    setList: setState
+  }, sortableMappings.map(function (mapping, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(Mapping, {
+      mapping: mapping.value,
+      key: index,
+      onDelete: function onDelete() {
+        return deleteMapping(index);
+      }
+    });
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_0__.Field, {
+    invalid: invalidMapping(),
+    error: generateErrorMessage()
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_0__.Input, {
+    addonAfter: addonAfter,
+    onKeyPress: handleKeyPress,
+    onChange: function onChange(e) {
+      return setNewMapping(e.currentTarget.value);
+    },
+    value: newMapping
+  })));
+};
+
+/***/ }),
+
+/***/ "./customEditors/EditorMappingItem.tsx":
+/*!*********************************************!*\
+  !*** ./customEditors/EditorMappingItem.tsx ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "EditorMappingItem": () => (/* binding */ EditorMappingItem)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @grafana/ui */ "@grafana/ui");
+/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! immer */ "../node_modules/immer/dist/immer.esm.mjs");
+/* harmony import */ var components_ColorDot__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! components/ColorDot */ "./components/ColorDot.tsx");
+
+
+
+
+var EditorMappingItem = function EditorMappingItem(props) {
+  var _mapping$values;
+
+  var mapping = props.mapping,
+      index = props.index,
+      operatorsOptions = props.operatorsOptions,
+      onChange = props.onChange,
+      onDelete = props.onDelete;
+
+  function updateMapping(draftState) {
+    var updatedMapping = (0,immer__WEBPACK_IMPORTED_MODULE_3__["default"])(mapping, draftState);
+    onChange(updatedMapping, index);
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.HorizontalGroup, null, "Mapping ", index + 1, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.IconButton, {
+    name: "trash-alt",
+    size: "sm",
+    onClick: function onClick() {
+      return onDelete(index);
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "ID"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Input, {
+    value: mapping.id,
+    onChange: function onChange(event) {
+      updateMapping(function (mapping) {
+        mapping.id = event.currentTarget.value;
+      });
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Description"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.TextArea, {
+    value: mapping.description,
+    onChange: function onChange(event) {
+      updateMapping(function (mapping) {
+        mapping.description = event.currentTarget.value;
+      });
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Operator"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Select, {
+    value: mapping.operator,
+    options: operatorsOptions,
+    onChange: function onChange(selectableValue) {
+      updateMapping(function (mapping) {
+        mapping.operator = selectableValue.value;
+      });
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Compare to"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Input, {
+    value: mapping.compareTo,
+    onChange: function onChange(event) {
+      updateMapping(function (mapping) {
+        mapping.compareTo = event.currentTarget.value;
+      });
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Font Color"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.ColorPicker, {
+    color: (_mapping$values = mapping.values) === null || _mapping$values === void 0 ? void 0 : _mapping$values.fontColor,
+    onChange: function onChange(color) {
+      updateMapping(function (mapping) {
+        mapping.values.fontColor = color;
+      });
+    },
+    enableNamedColors: true
+  }, function (_ref) {
+    var ref = _ref.ref,
+        showColorPicker = _ref.showColorPicker,
+        hideColorPicker = _ref.hideColorPicker;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Button, {
+      ref: ref,
+      onMouseLeave: hideColorPicker,
+      onClick: showColorPicker,
+      variant: "secondary"
+    }, "Open color picker ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(components_ColorDot__WEBPACK_IMPORTED_MODULE_2__.ColorDot, {
+      color: mapping.values.fontColor
+    }));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Background Color"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.ColorPicker, {
+    color: mapping.values.backgroundColor,
+    onChange: function onChange(color) {
+      updateMapping(function (mapping) {
+        mapping.values.backgroundColor = color;
+      });
+    },
+    enableNamedColors: true
+  }, function (_ref2) {
+    var ref = _ref2.ref,
+        showColorPicker = _ref2.showColorPicker,
+        hideColorPicker = _ref2.hideColorPicker;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Button, {
+      ref: ref,
+      onMouseLeave: hideColorPicker,
+      onClick: showColorPicker,
+      variant: "secondary"
+    }, "Open color picker ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(components_ColorDot__WEBPACK_IMPORTED_MODULE_2__.ColorDot, {
+      color: mapping.values.backgroundColor
+    }));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Show"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Switch, {
+    value: mapping.values.visible,
+    onChange: function onChange(event) {
+      updateMapping(function (mapping) {
+        mapping.values.visible = event.currentTarget.checked;
+      });
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Bold"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Switch, {
+    value: mapping.values.bold,
+    onChange: function onChange(event) {
+      updateMapping(function (mapping) {
+        mapping.values.bold = event.currentTarget.checked;
+      });
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Background Blink"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Switch, {
+    value: mapping.values.backgroundBlink,
+    onChange: function onChange(event) {
+      updateMapping(function (mapping) {
+        mapping.values.backgroundBlink = event.currentTarget.checked;
+      });
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Value Blink"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Switch, {
+    value: mapping.values.valueBlink,
+    onChange: function onChange(event) {
+      updateMapping(function (mapping) {
+        mapping.values.valueBlink = event.currentTarget.checked;
+      });
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Override value"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Input, {
+    value: mapping.values.overrideValue,
+    onChange: function onChange(event) {
+      updateMapping(function (mapping) {
+        mapping.values.overrideValue = event.currentTarget.value;
+      });
+    }
+  })));
+};
+
+/***/ }),
+
+/***/ "./customEditors/EditorMappingList.tsx":
+/*!*********************************************!*\
+  !*** ./customEditors/EditorMappingList.tsx ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "EditorMappingList": () => (/* binding */ EditorMappingList)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var emotion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! emotion */ "emotion");
+/* harmony import */ var emotion__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(emotion__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @grafana/ui */ "@grafana/ui");
+/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_grafana_ui__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _EditorMappingItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditorMappingItem */ "./customEditors/EditorMappingItem.tsx");
+/* harmony import */ var MappingOperator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! MappingOperator */ "./MappingOperator.ts");
+var _templateObject, _templateObject2;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+
+
+var getRandomID = function getRandomID() {
+  var randomString = Math.random().toString(36).substr(2, 5);
+  return 'mapping-' + randomString;
+};
+
+var operatorsOptions = MappingOperator__WEBPACK_IMPORTED_MODULE_4__["default"].map(function (mappingOperator) {
+  return {
+    label: mappingOperator.operator,
+    value: mappingOperator.id,
+    description: mappingOperator.description
+  };
+});
+var EditorMappingList = function EditorMappingList(props) {
+  var mappings = props.mappings,
+      onChange = props.onChange;
+  var theme = (0,_grafana_ui__WEBPACK_IMPORTED_MODULE_2__.useTheme)();
+  var styles = getStyles(theme);
+  var defaultNewMapping = {
+    id: getRandomID(),
+    description: '',
+    compareTo: 0,
+    operator: MappingOperator__WEBPACK_IMPORTED_MODULE_4__["default"][0].id,
+    values: {
+      fontColor: '#fff',
+      backgroundColor: '#000',
+      valueBlink: false,
+      backgroundBlink: false,
+      bold: false,
+      visible: true,
+      overrideValue: undefined
+    }
+  };
+
+  var onMappingChange = function onMappingChange(mapping, index) {
+    mappings[index] = mapping;
+    onChange(mappings);
+  };
+
+  var onMappingDelete = function onMappingDelete(index) {
+    mappings.splice(index, 1);
+    onChange(mappings);
+  };
+
+  var addNewMapping = function addNewMapping() {
+    mappings.push(defaultNewMapping);
+    onChange(mappings);
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, mappings && mappings.map(function (mapping, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: styles.mappingItemWrapper,
+      key: index
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_EditorMappingItem__WEBPACK_IMPORTED_MODULE_3__.EditorMappingItem, {
+      mapping: mapping,
+      operatorsOptions: operatorsOptions,
+      onChange: onMappingChange,
+      onDelete: onMappingDelete,
+      index: index
+    }));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_2__.Button, {
+    className: styles.addButtonStyle,
+    onClick: addNewMapping,
+    variant: "secondary",
+    size: "md"
+  }, "Add New"));
+};
+var getStyles = (0,_grafana_ui__WEBPACK_IMPORTED_MODULE_2__.stylesFactory)(function (theme) {
+  return {
+    mappingItemWrapper: (0,emotion__WEBPACK_IMPORTED_MODULE_1__.css)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    margin-bottom: 16px;\n    padding: 8px;\n    background-color: ", ";\n  "])), theme.colors.bg2),
+    addButtonStyle: (0,emotion__WEBPACK_IMPORTED_MODULE_1__.css)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    /* margin-left: 8px; */\n  "])))
+  };
+});
+
+/***/ }),
+
+/***/ "./customEditors/EditorSensorItem.tsx":
+/*!********************************************!*\
+  !*** ./customEditors/EditorSensorItem.tsx ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "EditorSensorItem": () => (/* binding */ EditorSensorItem)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @grafana/ui */ "@grafana/ui");
+/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! immer */ "../node_modules/immer/dist/immer.esm.mjs");
+/* harmony import */ var components_ColorDot__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! components/ColorDot */ "./components/ColorDot.tsx");
+/* harmony import */ var components_MappingInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! components/MappingInput */ "./components/MappingInput.tsx");
+
+
+
+
+
+var EditorSensorItem = function EditorSensorItem(props) {
+  var sensor = props.sensor,
+      index = props.index,
+      onChange = props.onChange,
+      onDelete = props.onDelete;
+
+  function updateSensor(draftState) {
+    var updatedMapping = (0,immer__WEBPACK_IMPORTED_MODULE_4__["default"])(sensor, draftState);
+    onChange(updatedMapping, index);
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.HorizontalGroup, null, "Sensor ", props.index + 1, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.IconButton, {
+    name: "trash-alt",
+    size: "sm",
+    onClick: function onClick() {
+      return onDelete(index);
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Query ID",
+    description: "Set this as query ID OR the query alias below"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Input, {
+    value: sensor.query.id,
+    onChange: function onChange(event) {
+      updateSensor(function (sensor) {
+        sensor.query.id = event.currentTarget.value;
+      });
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Query Alias",
+    description: "If both alias and ID are set, ID has precedence"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Input, {
+    value: sensor.query.alias,
+    onChange: function onChange(event) {
+      updateSensor(function (sensor) {
+        sensor.query.alias = event.currentTarget.value;
+      });
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Mapping IDs",
+    description: "Select IDs of mappings you want to use for this sensor. First valid mapping will be applied. List can be reordered by dragging."
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(components_MappingInput__WEBPACK_IMPORTED_MODULE_3__.MappingInput, {
+    mappings: sensor.mappingIds,
+    onChange: function onChange(mappings) {
+      updateSensor(function (sensor) {
+        sensor.mappingIds = mappings;
+      });
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Name"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Input, {
+    value: sensor.name,
+    onChange: function onChange(event) {
+      updateSensor(function (sensor) {
+        sensor.name = event.currentTarget.value;
+      });
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Link"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Input, {
+    value: sensor.link,
+    onChange: function onChange(event) {
+      updateSensor(function (sensor) {
+        sensor.link = event.currentTarget.value;
+      });
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Show"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Switch, {
+    value: sensor.visible,
+    onChange: function onChange(event) {
+      updateSensor(function (sensor) {
+        sensor.visible = event.currentTarget.checked;
+      });
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Unit Type"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.UnitPicker, {
+    value: sensor.unit,
+    onChange: function onChange(unit) {
+      updateSensor(function (sensor) {
+        sensor.unit = unit;
+      });
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Font Color"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.ColorPicker, {
+    color: sensor.fontColor,
+    onChange: function onChange(color) {
+      updateSensor(function (sensor) {
+        sensor.fontColor = color;
+      });
+    }
+  }, function (_ref) {
+    var ref = _ref.ref,
+        showColorPicker = _ref.showColorPicker,
+        hideColorPicker = _ref.hideColorPicker;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Button, {
+      ref: ref,
+      onMouseLeave: hideColorPicker,
+      onClick: showColorPicker,
+      variant: "secondary"
+    }, "Open color picker ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(components_ColorDot__WEBPACK_IMPORTED_MODULE_2__.ColorDot, {
+      color: sensor.fontColor
+    }));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Size"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Input, {
+    value: sensor.sensorsTextSize,
+    type: "number",
+    onChange: function onChange(event) {
+      updateSensor(function (sensor) {
+        sensor.sensorsTextSize = Number.parseInt(event.currentTarget.value, 10);
+      });
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Field, {
+    label: "Decimals"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__.Input, {
+    value: sensor.decimals,
+    type: "number",
+    onChange: function onChange(event) {
+      updateSensor(function (sensor) {
+        sensor.decimals = Number.parseInt(event.currentTarget.value, 10);
+      });
+    }
+  })));
+};
+
+/***/ }),
+
+/***/ "./customEditors/EditorSensorList.tsx":
+/*!********************************************!*\
+  !*** ./customEditors/EditorSensorList.tsx ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "EditorSensorList": () => (/* binding */ EditorSensorList)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var emotion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! emotion */ "emotion");
+/* harmony import */ var emotion__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(emotion__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @grafana/ui */ "@grafana/ui");
+/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_grafana_ui__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _EditorSensorItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditorSensorItem */ "./customEditors/EditorSensorItem.tsx");
+var _templateObject, _templateObject2;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+var defaultNewSensor = {
+  name: 'Name',
+  query: {
+    id: 'A',
+    alias: ''
+  },
+  visible: true,
+  backgroundColor: '#000',
+  fontColor: '#FFF',
+  bold: false,
+  link: '',
+  position: {
+    x: 50,
+    y: 50
+  },
+  mappingIds: [],
+  unit: undefined,
+  sensorsTextSize: 25,
+  decimals: 2,
+  valueBlink: false,
+  backgroundBlink: false
+};
+var EditorSensorList = function EditorSensorList(props) {
+  var sensors = props.sensors,
+      onChange = props.onChange;
+  var theme = (0,_grafana_ui__WEBPACK_IMPORTED_MODULE_2__.useTheme)();
+  var styles = getStyles(theme);
+
+  var onSensorChange = function onSensorChange(sensor, index) {
+    sensors[index] = sensor;
+    onChange(sensors);
+  };
+
+  var onSensorDelete = function onSensorDelete(index) {
+    sensors.splice(index, 1);
+    onChange(sensors);
+  };
+
+  var addNewSensor = function addNewSensor() {
+    sensors.push(defaultNewSensor);
+    onChange(sensors);
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, sensors && sensors.map(function (sensor, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: styles.sensorItemWrapperStyle,
+      key: index
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_EditorSensorItem__WEBPACK_IMPORTED_MODULE_3__.EditorSensorItem, {
+      sensor: sensor,
+      onChange: onSensorChange,
+      onDelete: onSensorDelete,
+      index: index
+    }));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_2__.Button, {
+    className: styles.addButtonStyle,
+    onClick: addNewSensor,
+    variant: "secondary",
+    size: "md"
+  }, "Add New"));
+};
+var getStyles = (0,_grafana_ui__WEBPACK_IMPORTED_MODULE_2__.stylesFactory)(function (theme) {
+  return {
+    sensorItemWrapperStyle: (0,emotion__WEBPACK_IMPORTED_MODULE_1__.css)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    margin-bottom: 16px;\n    padding: 8px;\n    background-color: ", ";\n  "])), theme.colors.bg2),
+    addButtonStyle: (0,emotion__WEBPACK_IMPORTED_MODULE_1__.css)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    /* margin-left: 8px; */\n  "])))
+  };
+});
+
+/***/ }),
 
 /***/ "../node_modules/classnames/index.js":
 /*!*******************************************!*\
   !*** ../node_modules/classnames/index.js ***!
   \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, exports) => {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
   Copyright (c) 2018 Jed Watson.
@@ -147,7 +1135,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
 			return classNames;
 		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	} else {}
 }());
 
@@ -158,88 +1146,15 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /*!*******************************************!*\
   !*** ../node_modules/clsx/dist/clsx.m.js ***!
   \*******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function toVal(mix) {
-	var k, y, str='';
-
-	if (typeof mix === 'string' || typeof mix === 'number') {
-		str += mix;
-	} else if (typeof mix === 'object') {
-		if (Array.isArray(mix)) {
-			for (k=0; k < mix.length; k++) {
-				if (mix[k]) {
-					if (y = toVal(mix[k])) {
-						str && (str += ' ');
-						str += y;
-					}
-				}
-			}
-		} else {
-			for (k in mix) {
-				if (mix[k]) {
-					str && (str += ' ');
-					str += k;
-				}
-			}
-		}
-	}
-
-	return str;
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (function () {
-	var i=0, tmp, x, str='';
-	while (i < arguments.length) {
-		if (tmp = arguments[i++]) {
-			if (x = toVal(tmp)) {
-				str && (str += ' ');
-				str += x
-			}
-		}
-	}
-	return str;
-});
-
-
-/***/ }),
-
-/***/ "../node_modules/immer/dist/immer.esm.js":
-/*!***********************************************!*\
-  !*** ../node_modules/immer/dist/immer.esm.js ***!
-  \***********************************************/
-/*! exports provided: default, Immer, applyPatches, castDraft, castImmutable, createDraft, current, enableAllPlugins, enableES5, enableMapSet, enablePatches, finishDraft, freeze, immerable, isDraft, isDraftable, nothing, original, produce, produceWithPatches, setAutoFreeze, setUseProxies */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Immer", function() { return it; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "applyPatches", function() { return st; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "castDraft", function() { return K; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "castImmutable", function() { return $; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createDraft", function() { return vt; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "current", function() { return D; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enableAllPlugins", function() { return J; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enableES5", function() { return T; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enableMapSet", function() { return C; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enablePatches", function() { return F; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "finishDraft", function() { return pt; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "freeze", function() { return d; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "immerable", function() { return L; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isDraft", function() { return n; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isDraftable", function() { return r; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "nothing", function() { return H; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "original", function() { return e; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "produce", function() { return ut; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "produceWithPatches", function() { return at; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setAutoFreeze", function() { return ft; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setUseProxies", function() { return ct; });
-function t(t){for(var n=arguments.length,r=Array(n>1?n-1:0),e=1;e<n;e++)r[e-1]=arguments[e];if(true){var i=Y[t],o=i?"function"==typeof i?i.apply(null,r):i:"unknown error nr: "+t;throw Error("[Immer] "+o)}throw Error("[Immer] minified error nr: "+t+(r.length?" "+r.map((function(t){return"'"+t+"'"})).join(","):"")+". Find the full error at: https://bit.ly/3cXEKWf")}function n(t){return!!t&&!!t[Q]}function r(t){return!!t&&(function(t){if(!t||"object"!=typeof t)return!1;var n=Object.getPrototypeOf(t);return!n||n===Object.prototype}(t)||Array.isArray(t)||!!t[L]||!!t.constructor[L]||s(t)||v(t))}function e(r){return n(r)||t(23,r),r[Q].t}function i(t,n,r){void 0===r&&(r=!1),0===o(t)?(r?Object.keys:Z)(t).forEach((function(e){r&&"symbol"==typeof e||n(e,t[e],t)})):t.forEach((function(r,e){return n(e,r,t)}))}function o(t){var n=t[Q];return n?n.i>3?n.i-4:n.i:Array.isArray(t)?1:s(t)?2:v(t)?3:0}function u(t,n){return 2===o(t)?t.has(n):Object.prototype.hasOwnProperty.call(t,n)}function a(t,n){return 2===o(t)?t.get(n):t[n]}function f(t,n,r){var e=o(t);2===e?t.set(n,r):3===e?(t.delete(n),t.add(r)):t[n]=r}function c(t,n){return t===n?0!==t||1/t==1/n:t!=t&&n!=n}function s(t){return X&&t instanceof Map}function v(t){return q&&t instanceof Set}function p(t){return t.o||t.t}function l(t){if(Array.isArray(t))return Array.prototype.slice.call(t);var n=tt(t);delete n[Q];for(var r=Z(n),e=0;e<r.length;e++){var i=r[e],o=n[i];!1===o.writable&&(o.writable=!0,o.configurable=!0),(o.get||o.set)&&(n[i]={configurable:!0,writable:!0,enumerable:o.enumerable,value:t[i]})}return Object.create(Object.getPrototypeOf(t),n)}function d(t,e){return void 0===e&&(e=!1),y(t)||n(t)||!r(t)?t:(o(t)>1&&(t.set=t.add=t.clear=t.delete=h),Object.freeze(t),e&&i(t,(function(t,n){return d(n,!0)}),!0),t)}function h(){t(2)}function y(t){return null==t||"object"!=typeof t||Object.isFrozen(t)}function b(n){var r=nt[n];return r||t(18,n),r}function m(t,n){nt[t]||(nt[t]=n)}function _(){return false||U||t(0),U}function j(t,n){n&&(b("Patches"),t.u=[],t.s=[],t.v=n)}function g(t){w(t),t.p.forEach(S),t.p=null}function w(t){t===U&&(U=t.l)}function O(t){return U={p:[],l:U,h:t,m:!0,_:0}}function S(t){var n=t[Q];0===n.i||1===n.i?n.j():n.g=!0}function P(n,e){e._=e.p.length;var i=e.p[0],o=void 0!==n&&n!==i;return e.h.O||b("ES5").S(e,n,o),o?(i[Q].P&&(g(e),t(4)),r(n)&&(n=M(e,n),e.l||x(e,n)),e.u&&b("Patches").M(i[Q],n,e.u,e.s)):n=M(e,i,[]),g(e),e.u&&e.v(e.u,e.s),n!==H?n:void 0}function M(t,n,r){if(y(n))return n;var e=n[Q];if(!e)return i(n,(function(i,o){return A(t,e,n,i,o,r)}),!0),n;if(e.A!==t)return n;if(!e.P)return x(t,e.t,!0),e.t;if(!e.I){e.I=!0,e.A._--;var o=4===e.i||5===e.i?e.o=l(e.k):e.o;i(3===e.i?new Set(o):o,(function(n,i){return A(t,e,o,n,i,r)})),x(t,o,!1),r&&t.u&&b("Patches").R(e,r,t.u,t.s)}return e.o}function A(e,i,o,a,c,s){if( true&&c===o&&t(5),n(c)){var v=M(e,c,s&&i&&3!==i.i&&!u(i.D,a)?s.concat(a):void 0);if(f(o,a,v),!n(v))return;e.m=!1}if(r(c)&&!y(c)){if(!e.h.N&&e._<1)return;M(e,c),i&&i.A.l||x(e,c)}}function x(t,n,r){void 0===r&&(r=!1),t.h.N&&t.m&&d(n,r)}function z(t,n){var r=t[Q];return(r?p(r):t)[n]}function I(t,n){if(n in t)for(var r=Object.getPrototypeOf(t);r;){var e=Object.getOwnPropertyDescriptor(r,n);if(e)return e;r=Object.getPrototypeOf(r)}}function k(t){t.P||(t.P=!0,t.l&&k(t.l))}function E(t){t.o||(t.o=l(t.t))}function R(t,n,r){var e=s(n)?b("MapSet").T(n,r):v(n)?b("MapSet").F(n,r):t.O?function(t,n){var r=Array.isArray(t),e={i:r?1:0,A:n?n.A:_(),P:!1,I:!1,D:{},l:n,t:t,k:null,o:null,j:null,C:!1},i=e,o=rt;r&&(i=[e],o=et);var u=Proxy.revocable(i,o),a=u.revoke,f=u.proxy;return e.k=f,e.j=a,f}(n,r):b("ES5").J(n,r);return(r?r.A:_()).p.push(e),e}function D(e){return n(e)||t(22,e),function t(n){if(!r(n))return n;var e,u=n[Q],c=o(n);if(u){if(!u.P&&(u.i<4||!b("ES5").K(u)))return u.t;u.I=!0,e=N(n,c),u.I=!1}else e=N(n,c);return i(e,(function(n,r){u&&a(u.t,n)===r||f(e,n,t(r))})),3===c?new Set(e):e}(e)}function N(t,n){switch(n){case 2:return new Map(t);case 3:return Array.from(t)}return l(t)}function T(){function r(t,n){var r=s[t];return r?r.enumerable=n:s[t]=r={configurable:!0,enumerable:n,get:function(){var n=this[Q];return true&&f(n),rt.get(n,t)},set:function(n){var r=this[Q]; true&&f(r),rt.set(r,t,n)}},r}function e(t){for(var n=t.length-1;n>=0;n--){var r=t[n][Q];if(!r.P)switch(r.i){case 5:a(r)&&k(r);break;case 4:o(r)&&k(r)}}}function o(t){for(var n=t.t,r=t.k,e=Z(r),i=e.length-1;i>=0;i--){var o=e[i];if(o!==Q){var a=n[o];if(void 0===a&&!u(n,o))return!0;var f=r[o],s=f&&f[Q];if(s?s.t!==a:!c(f,a))return!0}}var v=!!n[Q];return e.length!==Z(n).length+(v?0:1)}function a(t){var n=t.k;if(n.length!==t.t.length)return!0;var r=Object.getOwnPropertyDescriptor(n,n.length-1);return!(!r||r.get)}function f(n){n.g&&t(3,JSON.stringify(p(n)))}var s={};m("ES5",{J:function(t,n){var e=Array.isArray(t),i=function(t,n){if(t){for(var e=Array(n.length),i=0;i<n.length;i++)Object.defineProperty(e,""+i,r(i,!0));return e}var o=tt(n);delete o[Q];for(var u=Z(o),a=0;a<u.length;a++){var f=u[a];o[f]=r(f,t||!!o[f].enumerable)}return Object.create(Object.getPrototypeOf(n),o)}(e,t),o={i:e?5:4,A:n?n.A:_(),P:!1,I:!1,D:{},l:n,t:t,k:i,o:null,g:!1,C:!1};return Object.defineProperty(i,Q,{value:o,writable:!0}),i},S:function(t,r,o){o?n(r)&&r[Q].A===t&&e(t.p):(t.u&&function t(n){if(n&&"object"==typeof n){var r=n[Q];if(r){var e=r.t,o=r.k,f=r.D,c=r.i;if(4===c)i(o,(function(n){n!==Q&&(void 0!==e[n]||u(e,n)?f[n]||t(o[n]):(f[n]=!0,k(r)))})),i(e,(function(t){void 0!==o[t]||u(o,t)||(f[t]=!1,k(r))}));else if(5===c){if(a(r)&&(k(r),f.length=!0),o.length<e.length)for(var s=o.length;s<e.length;s++)f[s]=!1;else for(var v=e.length;v<o.length;v++)f[v]=!0;for(var p=Math.min(o.length,e.length),l=0;l<p;l++)void 0===f[l]&&t(o[l])}}}}(t.p[0]),e(t.p))},K:function(t){return 4===t.i?o(t):a(t)}})}function F(){function e(t){if(!r(t))return t;if(Array.isArray(t))return t.map(e);if(s(t))return new Map(Array.from(t.entries()).map((function(t){return[t[0],e(t[1])]})));if(v(t))return new Set(Array.from(t).map(e));var n=Object.create(Object.getPrototypeOf(t));for(var i in t)n[i]=e(t[i]);return n}function f(t){return n(t)?e(t):t}var c="add";m("Patches",{$:function(n,r){return r.forEach((function(r){for(var i=r.path,u=r.op,f=n,s=0;s<i.length-1;s++){var v=o(f),p=i[s];0!==v&&1!==v||"__proto__"!==p&&"constructor"!==p||t(24),"function"==typeof f&&"prototype"===p&&t(24),"object"!=typeof(f=a(f,p))&&t(15,i.join("/"))}var l=o(f),d=e(r.value),h=i[i.length-1];switch(u){case"replace":switch(l){case 2:return f.set(h,d);case 3:t(16);default:return f[h]=d}case c:switch(l){case 1:return f.splice(h,0,d);case 2:return f.set(h,d);case 3:return f.add(d);default:return f[h]=d}case"remove":switch(l){case 1:return f.splice(h,1);case 2:return f.delete(h);case 3:return f.delete(r.value);default:return delete f[h]}default:t(17,u)}})),n},R:function(t,n,r,e){switch(t.i){case 0:case 4:case 2:return function(t,n,r,e){var o=t.t,s=t.o;i(t.D,(function(t,i){var v=a(o,t),p=a(s,t),l=i?u(o,t)?"replace":c:"remove";if(v!==p||"replace"!==l){var d=n.concat(t);r.push("remove"===l?{op:l,path:d}:{op:l,path:d,value:p}),e.push(l===c?{op:"remove",path:d}:"remove"===l?{op:c,path:d,value:f(v)}:{op:"replace",path:d,value:f(v)})}}))}(t,n,r,e);case 5:case 1:return function(t,n,r,e){var i=t.t,o=t.D,u=t.o;if(u.length<i.length){var a=[u,i];i=a[0],u=a[1];var s=[e,r];r=s[0],e=s[1]}for(var v=0;v<i.length;v++)if(o[v]&&u[v]!==i[v]){var p=n.concat([v]);r.push({op:"replace",path:p,value:f(u[v])}),e.push({op:"replace",path:p,value:f(i[v])})}for(var l=i.length;l<u.length;l++){var d=n.concat([l]);r.push({op:c,path:d,value:f(u[l])})}i.length<u.length&&e.push({op:"replace",path:n.concat(["length"]),value:i.length})}(t,n,r,e);case 3:return function(t,n,r,e){var i=t.t,o=t.o,u=0;i.forEach((function(t){if(!o.has(t)){var i=n.concat([u]);r.push({op:"remove",path:i,value:t}),e.unshift({op:c,path:i,value:t})}u++})),u=0,o.forEach((function(t){if(!i.has(t)){var o=n.concat([u]);r.push({op:c,path:o,value:t}),e.unshift({op:"remove",path:o,value:t})}u++}))}(t,n,r,e)}},M:function(t,n,r,e){r.push({op:"replace",path:[],value:n}),e.push({op:"replace",path:[],value:t.t})}})}function C(){function n(t,n){function r(){this.constructor=t}a(t,n),t.prototype=(r.prototype=n.prototype,new r)}function e(t){t.o||(t.D=new Map,t.o=new Map(t.t))}function o(t){t.o||(t.o=new Set,t.t.forEach((function(n){if(r(n)){var e=R(t.A.h,n,t);t.p.set(n,e),t.o.add(e)}else t.o.add(n)})))}function u(n){n.g&&t(3,JSON.stringify(p(n)))}var a=function(t,n){return(a=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(t,n){t.__proto__=n}||function(t,n){for(var r in n)n.hasOwnProperty(r)&&(t[r]=n[r])})(t,n)},f=function(){function t(t,n){return this[Q]={i:2,l:n,A:n?n.A:_(),P:!1,I:!1,o:void 0,D:void 0,t:t,k:this,C:!1,g:!1},this}n(t,Map);var o=t.prototype;return Object.defineProperty(o,"size",{get:function(){return p(this[Q]).size}}),o.has=function(t){return p(this[Q]).has(t)},o.set=function(t,n){var r=this[Q];return u(r),p(r).has(t)&&p(r).get(t)===n||(e(r),k(r),r.D.set(t,!0),r.o.set(t,n),r.D.set(t,!0)),this},o.delete=function(t){if(!this.has(t))return!1;var n=this[Q];return u(n),e(n),k(n),n.D.set(t,!1),n.o.delete(t),!0},o.clear=function(){var t=this[Q];u(t),p(t).size&&(e(t),k(t),t.D=new Map,i(t.t,(function(n){t.D.set(n,!1)})),t.o.clear())},o.forEach=function(t,n){var r=this;p(this[Q]).forEach((function(e,i){t.call(n,r.get(i),i,r)}))},o.get=function(t){var n=this[Q];u(n);var i=p(n).get(t);if(n.I||!r(i))return i;if(i!==n.t.get(t))return i;var o=R(n.A.h,i,n);return e(n),n.o.set(t,o),o},o.keys=function(){return p(this[Q]).keys()},o.values=function(){var t,n=this,r=this.keys();return(t={})[V]=function(){return n.values()},t.next=function(){var t=r.next();return t.done?t:{done:!1,value:n.get(t.value)}},t},o.entries=function(){var t,n=this,r=this.keys();return(t={})[V]=function(){return n.entries()},t.next=function(){var t=r.next();if(t.done)return t;var e=n.get(t.value);return{done:!1,value:[t.value,e]}},t},o[V]=function(){return this.entries()},t}(),c=function(){function t(t,n){return this[Q]={i:3,l:n,A:n?n.A:_(),P:!1,I:!1,o:void 0,t:t,k:this,p:new Map,g:!1,C:!1},this}n(t,Set);var r=t.prototype;return Object.defineProperty(r,"size",{get:function(){return p(this[Q]).size}}),r.has=function(t){var n=this[Q];return u(n),n.o?!!n.o.has(t)||!(!n.p.has(t)||!n.o.has(n.p.get(t))):n.t.has(t)},r.add=function(t){var n=this[Q];return u(n),this.has(t)||(o(n),k(n),n.o.add(t)),this},r.delete=function(t){if(!this.has(t))return!1;var n=this[Q];return u(n),o(n),k(n),n.o.delete(t)||!!n.p.has(t)&&n.o.delete(n.p.get(t))},r.clear=function(){var t=this[Q];u(t),p(t).size&&(o(t),k(t),t.o.clear())},r.values=function(){var t=this[Q];return u(t),o(t),t.o.values()},r.entries=function(){var t=this[Q];return u(t),o(t),t.o.entries()},r.keys=function(){return this.values()},r[V]=function(){return this.values()},r.forEach=function(t,n){for(var r=this.values(),e=r.next();!e.done;)t.call(n,e.value,e.value,this),e=r.next()},t}();m("MapSet",{T:function(t,n){return new f(t,n)},F:function(t,n){return new c(t,n)}})}function J(){T(),C(),F()}function K(t){return t}function $(t){return t}var G,U,W="undefined"!=typeof Symbol&&"symbol"==typeof Symbol("x"),X="undefined"!=typeof Map,q="undefined"!=typeof Set,B="undefined"!=typeof Proxy&&void 0!==Proxy.revocable&&"undefined"!=typeof Reflect,H=W?Symbol.for("immer-nothing"):((G={})["immer-nothing"]=!0,G),L=W?Symbol.for("immer-draftable"):"__$immer_draftable",Q=W?Symbol.for("immer-state"):"__$immer_state",V="undefined"!=typeof Symbol&&Symbol.iterator||"@@iterator",Y={0:"Illegal state",1:"Immer drafts cannot have computed properties",2:"This object has been frozen and should not be mutated",3:function(t){return"Cannot use a proxy that has been revoked. Did you pass an object from inside an immer function to an async process? "+t},4:"An immer producer returned a new value *and* modified its draft. Either return a new value *or* modify the draft.",5:"Immer forbids circular references",6:"The first or second argument to `produce` must be a function",7:"The third argument to `produce` must be a function or undefined",8:"First argument to `createDraft` must be a plain object, an array, or an immerable object",9:"First argument to `finishDraft` must be a draft returned by `createDraft`",10:"The given draft is already finalized",11:"Object.defineProperty() cannot be used on an Immer draft",12:"Object.setPrototypeOf() cannot be used on an Immer draft",13:"Immer only supports deleting array indices",14:"Immer only supports setting array indices and the 'length' property",15:function(t){return"Cannot apply patch, path doesn't resolve: "+t},16:'Sets cannot have "replace" patches.',17:function(t){return"Unsupported patch operation: "+t},18:function(t){return"The plugin for '"+t+"' has not been loaded into Immer. To enable the plugin, import and call `enable"+t+"()` when initializing your application."},20:"Cannot use proxies if Proxy, Proxy.revocable or Reflect are not available",21:function(t){return"produce can only be called on things that are draftable: plain objects, arrays, Map, Set or classes that are marked with '[immerable]: true'. Got '"+t+"'"},22:function(t){return"'current' expects a draft, got: "+t},23:function(t){return"'original' expects a draft, got: "+t},24:"Patching reserved attributes like __proto__, prototype and constructor is not allowed"},Z="undefined"!=typeof Reflect&&Reflect.ownKeys?Reflect.ownKeys:void 0!==Object.getOwnPropertySymbols?function(t){return Object.getOwnPropertyNames(t).concat(Object.getOwnPropertySymbols(t))}:Object.getOwnPropertyNames,tt=Object.getOwnPropertyDescriptors||function(t){var n={};return Z(t).forEach((function(r){n[r]=Object.getOwnPropertyDescriptor(t,r)})),n},nt={},rt={get:function(t,n){if(n===Q)return t;var e=p(t);if(!u(e,n))return function(t,n,r){var e,i=I(n,r);return i?"value"in i?i.value:null===(e=i.get)||void 0===e?void 0:e.call(t.k):void 0}(t,e,n);var i=e[n];return t.I||!r(i)?i:i===z(t.t,n)?(E(t),t.o[n]=R(t.A.h,i,t)):i},has:function(t,n){return n in p(t)},ownKeys:function(t){return Reflect.ownKeys(p(t))},set:function(t,n,r){var e=I(p(t),n);if(null==e?void 0:e.set)return e.set.call(t.k,r),!0;if(!t.P){var i=z(p(t),n),o=null==i?void 0:i[Q];if(o&&o.t===r)return t.o[n]=r,t.D[n]=!1,!0;if(c(r,i)&&(void 0!==r||u(t.t,n)))return!0;E(t),k(t)}return t.o[n]=r,t.D[n]=!0,!0},deleteProperty:function(t,n){return void 0!==z(t.t,n)||n in t.t?(t.D[n]=!1,E(t),k(t)):delete t.D[n],t.o&&delete t.o[n],!0},getOwnPropertyDescriptor:function(t,n){var r=p(t),e=Reflect.getOwnPropertyDescriptor(r,n);return e?{writable:!0,configurable:1!==t.i||"length"!==n,enumerable:e.enumerable,value:r[n]}:e},defineProperty:function(){t(11)},getPrototypeOf:function(t){return Object.getPrototypeOf(t.t)},setPrototypeOf:function(){t(12)}},et={};i(rt,(function(t,n){et[t]=function(){return arguments[0]=arguments[0][0],n.apply(this,arguments)}})),et.deleteProperty=function(n,r){return true&&isNaN(parseInt(r))&&t(13),rt.deleteProperty.call(this,n[0],r)},et.set=function(n,r,e){return true&&"length"!==r&&isNaN(parseInt(r))&&t(14),rt.set.call(this,n[0],r,e,n[0])};var it=function(){function e(t){this.O=B,this.N=!0,"boolean"==typeof(null==t?void 0:t.useProxies)&&this.setUseProxies(t.useProxies),"boolean"==typeof(null==t?void 0:t.autoFreeze)&&this.setAutoFreeze(t.autoFreeze),this.produce=this.produce.bind(this),this.produceWithPatches=this.produceWithPatches.bind(this)}var i=e.prototype;return i.produce=function(n,e,i){if("function"==typeof n&&"function"!=typeof e){var o=e;e=n;var u=this;return function(t){var n=this;void 0===t&&(t=o);for(var r=arguments.length,i=Array(r>1?r-1:0),a=1;a<r;a++)i[a-1]=arguments[a];return u.produce(t,(function(t){var r;return(r=e).call.apply(r,[n,t].concat(i))}))}}var a;if("function"!=typeof e&&t(6),void 0!==i&&"function"!=typeof i&&t(7),r(n)){var f=O(this),c=R(this,n,void 0),s=!0;try{a=e(c),s=!1}finally{s?g(f):w(f)}return"undefined"!=typeof Promise&&a instanceof Promise?a.then((function(t){return j(f,i),P(t,f)}),(function(t){throw g(f),t})):(j(f,i),P(a,f))}if(!n||"object"!=typeof n){if((a=e(n))===H)return;return void 0===a&&(a=n),this.N&&d(a,!0),a}t(21,n)},i.produceWithPatches=function(t,n){var r,e,i=this;return"function"==typeof t?function(n){for(var r=arguments.length,e=Array(r>1?r-1:0),o=1;o<r;o++)e[o-1]=arguments[o];return i.produceWithPatches(n,(function(n){return t.apply(void 0,[n].concat(e))}))}:[this.produce(t,n,(function(t,n){r=t,e=n})),r,e]},i.createDraft=function(e){r(e)||t(8),n(e)&&(e=D(e));var i=O(this),o=R(this,e,void 0);return o[Q].C=!0,w(i),o},i.finishDraft=function(n,r){var e=n&&n[Q]; true&&(e&&e.C||t(9),e.I&&t(10));var i=e.A;return j(i,r),P(void 0,i)},i.setAutoFreeze=function(t){this.N=t},i.setUseProxies=function(n){n&&!B&&t(20),this.O=n},i.applyPatches=function(t,r){var e;for(e=r.length-1;e>=0;e--){var i=r[e];if(0===i.path.length&&"replace"===i.op){t=i.value;break}}var o=b("Patches").$;return n(t)?o(t,r):this.produce(t,(function(t){return o(t,r.slice(e+1))}))},e}(),ot=new it,ut=ot.produce,at=ot.produceWithPatches.bind(ot),ft=ot.setAutoFreeze.bind(ot),ct=ot.setUseProxies.bind(ot),st=ot.applyPatches.bind(ot),vt=ot.createDraft.bind(ot),pt=ot.finishDraft.bind(ot);/* harmony default export */ __webpack_exports__["default"] = (ut);
-//# sourceMappingURL=immer.esm.js.map
-
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "clsx": () => (/* binding */ clsx),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e))for(t=0;t<e.length;t++)e[t]&&(f=r(e[t]))&&(n&&(n+=" "),n+=f);else for(t in e)e[t]&&(n&&(n+=" "),n+=t);return n}function clsx(){for(var e,t,f=0,n="";f<arguments.length;)(e=arguments[f++])&&(t=r(e))&&(n&&(n+=" "),n+=t);return n}/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (clsx);
 
 /***/ }),
 
@@ -247,8 +1162,7 @@ function t(t){for(var n=arguments.length,r=Array(n>1?n-1:0),e=1;e<n;e++)r[e-1]=a
 /*!**********************************************!*\
   !*** ../node_modules/object-assign/index.js ***!
   \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module) => {
 
 "use strict";
 /*
@@ -349,8 +1263,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 /*!****************************************************!*\
   !*** ../node_modules/prop-types/checkPropTypes.js ***!
   \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 /**
@@ -464,8 +1377,7 @@ module.exports = checkPropTypes;
 /*!*************************************************************!*\
   !*** ../node_modules/prop-types/factoryWithTypeCheckers.js ***!
   \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 /**
@@ -837,7 +1749,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
   function createUnionTypeChecker(arrayOfTypeCheckers) {
     if (!Array.isArray(arrayOfTypeCheckers)) {
-       true ? printWarning('Invalid argument supplied to oneOfType, expected an instance of array.') : undefined;
+       true ? printWarning('Invalid argument supplied to oneOfType, expected an instance of array.') : 0;
       return emptyFunctionThatReturnsNull;
     }
 
@@ -1086,8 +1998,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /*!*******************************************!*\
   !*** ../node_modules/prop-types/index.js ***!
   \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -1112,8 +2023,7 @@ if (true) {
 /*!**************************************************************!*\
   !*** ../node_modules/prop-types/lib/ReactPropTypesSecret.js ***!
   \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module) => {
 
 "use strict";
 /**
@@ -1136,8 +2046,7 @@ module.exports = ReactPropTypesSecret;
 /*!*********************************************!*\
   !*** ../node_modules/prop-types/lib/has.js ***!
   \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ ((module) => {
 
 module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
 
@@ -1148,24 +2057,23 @@ module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
 /*!**************************************************************!*\
   !*** ../node_modules/react-draggable/build/cjs/Draggable.js ***!
   \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", ({
   value: true
-});
-Object.defineProperty(exports, "DraggableCore", {
+}));
+Object.defineProperty(exports, "DraggableCore", ({
   enumerable: true,
   get: function get() {
     return _DraggableCore.default;
   }
-});
-exports.default = void 0;
+}));
+exports["default"] = void 0;
 
 var React = _interopRequireWildcard(__webpack_require__(/*! react */ "react"));
 
@@ -1199,9 +2107,9 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -1219,9 +2127,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
@@ -1482,7 +2390,7 @@ var Draggable = /*#__PURE__*/function (_React$Component) {
   return Draggable;
 }(React.Component);
 
-exports.default = Draggable;
+exports["default"] = Draggable;
 
 _defineProperty(Draggable, "displayName", 'Draggable');
 
@@ -1616,18 +2524,17 @@ _defineProperty(Draggable, "defaultProps", _objectSpread(_objectSpread({}, _Drag
 /*!******************************************************************!*\
   !*** ../node_modules/react-draggable/build/cjs/DraggableCore.js ***!
   \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", ({
   value: true
-});
-exports.default = void 0;
+}));
+exports["default"] = void 0;
 
 var React = _interopRequireWildcard(__webpack_require__(/*! react */ "react"));
 
@@ -1665,9 +2572,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
@@ -1895,7 +2802,21 @@ var DraggableCore = /*#__PURE__*/function (_React$Component) {
       var position = (0, _positionFns.getControlPosition)(e, _this.state.touchIdentifier, _assertThisInitialized(_this));
       if (position == null) return;
       var x = position.x,
-          y = position.y;
+          y = position.y; // Snap to grid if prop has been provided
+
+      if (Array.isArray(_this.props.grid)) {
+        var deltaX = x - _this.state.lastX || 0;
+        var deltaY = y - _this.state.lastY || 0;
+
+        var _snapToGrid3 = (0, _positionFns.snapToGrid)(_this.props.grid, deltaX, deltaY);
+
+        var _snapToGrid4 = _slicedToArray(_snapToGrid3, 2);
+
+        deltaX = _snapToGrid4[0];
+        deltaY = _snapToGrid4[1];
+        x = _this.state.lastX + deltaX, y = _this.state.lastY + deltaY;
+      }
+
       var coreEvent = (0, _positionFns.createCoreData)(_assertThisInitialized(_this), x, y); // Call event handler
 
       var shouldContinue = _this.props.onStop(e, coreEvent);
@@ -1992,9 +2913,9 @@ var DraggableCore = /*#__PURE__*/function (_React$Component) {
     value: function findDOMNode()
     /*: ?HTMLElement*/
     {
-      var _this$props$nodeRef$c, _this$props, _this$props$nodeRef;
+      var _this$props, _this$props2, _this$props2$nodeRef;
 
-      return (_this$props$nodeRef$c = (_this$props = this.props) === null || _this$props === void 0 ? void 0 : (_this$props$nodeRef = _this$props.nodeRef) === null || _this$props$nodeRef === void 0 ? void 0 : _this$props$nodeRef.current) !== null && _this$props$nodeRef$c !== void 0 ? _this$props$nodeRef$c : _reactDom.default.findDOMNode(this);
+      return (_this$props = this.props) !== null && _this$props !== void 0 && _this$props.nodeRef ? (_this$props2 = this.props) === null || _this$props2 === void 0 ? void 0 : (_this$props2$nodeRef = _this$props2.nodeRef) === null || _this$props2$nodeRef === void 0 ? void 0 : _this$props2$nodeRef.current : _reactDom.default.findDOMNode(this);
     }
   }, {
     key: "render",
@@ -2019,7 +2940,7 @@ var DraggableCore = /*#__PURE__*/function (_React$Component) {
   return DraggableCore;
 }(React.Component);
 
-exports.default = DraggableCore;
+exports["default"] = DraggableCore;
 
 _defineProperty(DraggableCore, "displayName", 'DraggableCore');
 
@@ -2182,8 +3103,7 @@ _defineProperty(DraggableCore, "defaultProps", {
 /*!********************************************************!*\
   !*** ../node_modules/react-draggable/build/cjs/cjs.js ***!
   \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
@@ -2196,7 +3116,7 @@ var _require = __webpack_require__(/*! ./Draggable */ "../node_modules/react-dra
 
 
 module.exports = Draggable;
-module.exports.default = Draggable;
+module.exports["default"] = Draggable;
 module.exports.DraggableCore = DraggableCore;
 
 /***/ }),
@@ -2205,35 +3125,34 @@ module.exports.DraggableCore = DraggableCore;
 /*!*****************************************************************!*\
   !*** ../node_modules/react-draggable/build/cjs/utils/domFns.js ***!
   \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", ({
   value: true
-});
-exports.matchesSelector = matchesSelector;
-exports.matchesSelectorAndParentsTo = matchesSelectorAndParentsTo;
+}));
+exports.addClassName = addClassName;
 exports.addEvent = addEvent;
-exports.removeEvent = removeEvent;
-exports.outerHeight = outerHeight;
-exports.outerWidth = outerWidth;
-exports.innerHeight = innerHeight;
-exports.innerWidth = innerWidth;
-exports.offsetXYFromParent = offsetXYFromParent;
+exports.addUserSelectStyles = addUserSelectStyles;
 exports.createCSSTransform = createCSSTransform;
 exports.createSVGTransform = createSVGTransform;
-exports.getTranslation = getTranslation;
 exports.getTouch = getTouch;
 exports.getTouchIdentifier = getTouchIdentifier;
-exports.addUserSelectStyles = addUserSelectStyles;
-exports.removeUserSelectStyles = removeUserSelectStyles;
-exports.addClassName = addClassName;
+exports.getTranslation = getTranslation;
+exports.innerHeight = innerHeight;
+exports.innerWidth = innerWidth;
+exports.matchesSelector = matchesSelector;
+exports.matchesSelectorAndParentsTo = matchesSelectorAndParentsTo;
+exports.offsetXYFromParent = offsetXYFromParent;
+exports.outerHeight = outerHeight;
+exports.outerWidth = outerWidth;
 exports.removeClassName = removeClassName;
+exports.removeEvent = removeEvent;
+exports.removeUserSelectStyles = removeUserSelectStyles;
 
 var _shims = __webpack_require__(/*! ./shims */ "../node_modules/react-draggable/build/cjs/utils/shims.js");
 
@@ -2243,9 +3162,9 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -2571,19 +3490,18 @@ function removeClassName(el
 /*!********************************************************************!*\
   !*** ../node_modules/react-draggable/build/cjs/utils/getPrefix.js ***!
   \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", ({
   value: true
-});
-exports.getPrefix = getPrefix;
+}));
 exports.browserPrefixToKey = browserPrefixToKey;
 exports.browserPrefixToStyle = browserPrefixToStyle;
-exports.default = void 0;
+exports["default"] = void 0;
+exports.getPrefix = getPrefix;
 var prefixes = ['Moz', 'Webkit', 'O', 'ms'];
 
 function getPrefix()
@@ -2659,7 +3577,7 @@ var _default = (getPrefix()
 /*: string*/
 );
 
-exports.default = _default;
+exports["default"] = _default;
 
 /***/ }),
 
@@ -2667,22 +3585,21 @@ exports.default = _default;
 /*!**************************************************************!*\
   !*** ../node_modules/react-draggable/build/cjs/utils/log.js ***!
   \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", ({
   value: true
-});
-exports.default = log;
+}));
+exports["default"] = log;
 
 /*eslint no-console:0*/
 function log() {
   var _console;
 
-  if (undefined) (_console = console).log.apply(_console, arguments);
+  if (false) {}
 }
 
 /***/ }),
@@ -2691,22 +3608,21 @@ function log() {
 /*!**********************************************************************!*\
   !*** ../node_modules/react-draggable/build/cjs/utils/positionFns.js ***!
   \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", ({
   value: true
-});
-exports.getBoundPosition = getBoundPosition;
-exports.snapToGrid = snapToGrid;
+}));
 exports.canDragX = canDragX;
 exports.canDragY = canDragY;
-exports.getControlPosition = getControlPosition;
 exports.createCoreData = createCoreData;
 exports.createDraggableData = createDraggableData;
+exports.getBoundPosition = getBoundPosition;
+exports.getControlPosition = getControlPosition;
+exports.snapToGrid = snapToGrid;
 
 var _shims = __webpack_require__(/*! ./shims */ "../node_modules/react-draggable/build/cjs/utils/shims.js");
 
@@ -2910,20 +3826,19 @@ function findDOMNode(draggable
 /*!****************************************************************!*\
   !*** ../node_modules/react-draggable/build/cjs/utils/shims.js ***!
   \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", ({
   value: true
-});
+}));
+exports.dontSetMe = dontSetMe;
 exports.findInArray = findInArray;
+exports.int = int;
 exports.isFunction = isFunction;
 exports.isNum = isNum;
-exports.int = int;
-exports.dontSetMe = dontSetMe;
 
 // @credits https://gist.github.com/rogozhnikoff/a43cfed27c41e4e68cdc
 function findInArray(array
@@ -2983,8 +3898,7 @@ function dontSetMe(props
 /*!************************************************************!*\
   !*** ../node_modules/react-is/cjs/react-is.development.js ***!
   \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
 /** @license React v16.13.1
@@ -3176,8 +4090,7 @@ exports.typeOf = typeOf;
 /*!*****************************************!*\
   !*** ../node_modules/react-is/index.js ***!
   \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
@@ -3193,10 +4106,432 @@ if (false) {} else {
 /*!******************************************************!*\
   !*** ../node_modules/react-sortablejs/dist/index.js ***!
   \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var e=g(__webpack_require__(/*! tiny-invariant */ "../node_modules/tiny-invariant/dist/tiny-invariant.esm.js")),t=__webpack_require__(/*! react */ "react"),n=t.Children,r=t.cloneElement,o=t.Component,i=t.createElement,l=t.createRef,a=g(__webpack_require__(/*! classnames */ "../node_modules/classnames/index.js")),c=__webpack_require__(/*! sortablejs */ "../node_modules/sortablejs/modular/sortable.esm.js"),s=g(c);exports.Sortable=s;var u=c.Direction;exports.Direction=u;var f=c.DOMRect;exports.DOMRect=f;var p=c.GroupOptions;exports.GroupOptions=p;var d=c.MoveEvent;exports.MoveEvent=d;var b=c.Options;exports.Options=b;var y=c.PullResult;exports.PullResult=y;var v=c.PutResult;exports.PutResult=v;var h=c.SortableEvent;exports.SortableEvent=h;var m=c.SortableOptions;exports.SortableOptions=m;var O=c.Utils;function g(e){return e&&e.__esModule?e.default:e}function w(e,t){if(null==e)return{};var n,r,o=function(e,t){if(null==e)return{};var n,r,o={},i=Object.keys(e);for(r=0;r<i.length;r++)n=i[r],t.indexOf(n)>=0||(o[n]=e[n]);return o}(e,t);if(Object.getOwnPropertySymbols){var i=Object.getOwnPropertySymbols(e);for(r=0;r<i.length;r++)n=i[r],t.indexOf(n)>=0||Object.prototype.propertyIsEnumerable.call(e,n)&&(o[n]=e[n])}return o}function S(e){return function(e){if(Array.isArray(e))return j(e)}(e)||function(e){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(e))return Array.from(e)}(e)||function(e,t){if(!e)return;if("string"==typeof e)return j(e,t);var n=Object.prototype.toString.call(e).slice(8,-1);"Object"===n&&e.constructor&&(n=e.constructor.name);if("Map"===n||"Set"===n)return Array.from(e);if("Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))return j(e,t)}(e)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function j(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n<t;n++)r[n]=e[n];return r}function x(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);t&&(r=r.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),n.push.apply(n,r)}return n}function I(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{};t%2?x(Object(n),!0).forEach((function(t){P(e,t,n[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):x(Object(n)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(n,t))}))}return e}function P(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function E(e){null!==e.parentElement&&e.parentElement.removeChild(e)}function k(e){e.forEach((function(e){return E(e.element)}))}function C(e){e.forEach((function(e){var t,n,r,o;t=e.parentElement,n=e.element,r=e.oldIndex,o=t.children[r]||null,t.insertBefore(n,o)}))}function D(e,t){var n=M(e),r={parentElement:e.from},o=[];switch(n){case"normal":o=[{element:e.item,newIndex:e.newIndex,oldIndex:e.oldIndex,parentElement:e.from}];break;case"swap":o=[I({element:e.item,oldIndex:e.oldIndex,newIndex:e.newIndex},r),I({element:e.swapItem,oldIndex:e.newIndex,newIndex:e.oldIndex},r)];break;case"multidrag":o=e.oldIndicies.map((function(t,n){return I({element:t.multiDragElement,oldIndex:t.index,newIndex:e.newIndicies[n].index},r)}))}return function(e,t){return e.map((function(e){return I(I({},e),{},{item:t[e.oldIndex]})})).sort((function(e,t){return e.oldIndex-t.oldIndex}))}(o,t)}function A(e,t){var n=S(t);return e.concat().reverse().forEach((function(e){return n.splice(e.oldIndex,1)})),n}function R(e,t,n,r){var o=S(t);return e.forEach((function(e){var t=r&&n&&r(e.item,n);o.splice(e.newIndex,0,t||e.item)})),o}function M(e){return e.oldIndicies&&e.oldIndicies.length>0?"multidrag":e.swapItem?"swap":"normal"}function U(e){return(U="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function L(e){return function(e){if(Array.isArray(e))return _(e)}(e)||function(e){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(e))return Array.from(e)}(e)||function(e,t){if(!e)return;if("string"==typeof e)return _(e,t);var n=Object.prototype.toString.call(e).slice(8,-1);"Object"===n&&e.constructor&&(n=e.constructor.name);if("Map"===n||"Set"===n)return Array.from(e);if("Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))return _(e,t)}(e)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function _(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n<t;n++)r[n]=e[n];return r}function H(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);t&&(r=r.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),n.push.apply(n,r)}return n}function N(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{};t%2?H(Object(n),!0).forEach((function(t){B(e,t,n[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):H(Object(n)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(n,t))}))}return e}function q(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}function T(e,t){return(T=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function F(e){var t=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],(function(){}))),!0}catch(e){return!1}}();return function(){var n,r=$(e);if(t){var o=$(this).constructor;n=Reflect.construct(r,arguments,o)}else n=r.apply(this,arguments);return G(this,n)}}function G(e,t){return!t||"object"!==U(t)&&"function"!=typeof t?function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e):t}function $(e){return($=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function B(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}exports.Utils=O;var J={dragging:null},z=function(t){!function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&T(e,t)}(d,o);var c,u,f,p=F(d);function d(t){var n;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,d),(n=p.call(this,t)).ref=l();var r=t.list.map((function(e){return N(N({},e),{},{chosen:!1,selected:!1})}));return t.setList(r,n.sortable,J),e(!t.plugins,'\nPlugins prop is no longer supported.\nInstead, mount it with "Sortable.mount(new MultiDrag())"\nPlease read the updated README.md at https://github.com/SortableJS/react-sortablejs.\n      '),n}return c=d,(u=[{key:"componentDidMount",value:function(){if(null!==this.ref.current){var e=this.makeOptions();s.create(this.ref.current,e)}}},{key:"render",value:function(){var e=this.props,t=e.tag,n={style:e.style,className:e.className,id:e.id};return i(t&&null!==t?t:"div",N({ref:this.ref},n),this.getChildren())}},{key:"getChildren",value:function(){var e=this.props,t=e.children,o=e.dataIdAttr,i=e.selectedClass,l=void 0===i?"sortable-selected":i,c=e.chosenClass,s=void 0===c?"sortable-chosen":c,u=(e.dragClass,e.fallbackClass,e.ghostClass,e.swapClass,e.filter),f=void 0===u?"sortable-filter":u,p=e.list;if(!t||null==t)return null;var d=o||"data-id";return n.map(t,(function(e,t){var n,o,i=p[t],c=e.props.className,u="string"==typeof f&&B({},f.replace(".",""),!!i.filtered),b=a(c,N((B(n={},l,i.selected),B(n,s,i.chosen),n),u));return r(e,(B(o={},d,e.key),B(o,"className",b),o))}))}},{key:"makeOptions",value:function(){var e,t=this,n=((e=this.props).list,e.setList,e.children,e.tag,e.style,e.className,e.clone,e.onAdd,e.onChange,e.onChoose,e.onClone,e.onEnd,e.onFilter,e.onRemove,e.onSort,e.onStart,e.onUnchoose,e.onUpdate,e.onMove,e.onSpill,e.onSelect,e.onDeselect,w(e,["list","setList","children","tag","style","className","clone","onAdd","onChange","onChoose","onClone","onEnd","onFilter","onRemove","onSort","onStart","onUnchoose","onUpdate","onMove","onSpill","onSelect","onDeselect"]));return["onAdd","onChoose","onDeselect","onEnd","onRemove","onSelect","onSpill","onStart","onUnchoose","onUpdate"].forEach((function(e){return n[e]=t.prepareOnHandlerPropAndDOM(e)})),["onChange","onClone","onFilter","onSort"].forEach((function(e){return n[e]=t.prepareOnHandlerProp(e)})),N(N({},n),{},{onMove:function(e,n){var r=t.props.onMove,o=e.willInsertAfter||-1;if(!r)return o;var i=r(e,n,t.sortable,J);return void 0!==i&&i}})}},{key:"prepareOnHandlerPropAndDOM",value:function(e){var t=this;return function(n){t.callOnHandlerProp(n,e),t[e](n)}}},{key:"prepareOnHandlerProp",value:function(e){var t=this;return function(n){t.callOnHandlerProp(n,e)}}},{key:"callOnHandlerProp",value:function(e,t){var n=this.props[t];n&&n(e,this.sortable,J)}},{key:"onAdd",value:function(e){var t=this.props,n=t.list,r=t.setList,o=t.clone,i=D(e,L(J.dragging.props.list));k(i),r(R(i,n,e,o).map((function(e){return N(N({},e),{},{selected:!1})})),this.sortable,J)}},{key:"onRemove",value:function(t){var n=this,r=this.props,o=r.list,i=r.setList,l=M(t),a=D(t,o);C(a);var c=L(o);if("clone"!==t.pullMode)c=A(a,c);else{var s=a;switch(l){case"multidrag":s=a.map((function(e,n){return N(N({},e),{},{element:t.clones[n]})}));break;case"normal":s=a.map((function(e){return N(N({},e),{},{element:t.clone})}));break;case"swap":default:e(!0,'mode "'.concat(l,'" cannot clone. Please remove "props.clone" from <ReactSortable/> when using the "').concat(l,'" plugin'))}k(s),a.forEach((function(e){var r=e.oldIndex,o=n.props.clone(e.item,t);c.splice(r,1,o)}))}i(c=c.map((function(e){return N(N({},e),{},{selected:!1})})),this.sortable,J)}},{key:"onUpdate",value:function(e){var t=this.props,n=t.list,r=t.setList,o=D(e,n);return k(o),C(o),r(function(e,t){return R(e,A(e,t))}(o,n),this.sortable,J)}},{key:"onStart",value:function(){J.dragging=this}},{key:"onEnd",value:function(){J.dragging=null}},{key:"onChoose",value:function(e){var t=this.props,n=t.list;(0,t.setList)(n.map((function(t,n){return n===e.oldIndex?N(N({},t),{},{chosen:!0}):t})),this.sortable,J)}},{key:"onUnchoose",value:function(e){var t=this.props,n=t.list;(0,t.setList)(n.map((function(t,n){return n===e.oldIndex?N(N({},t),{},{chosen:!1}):t})),this.sortable,J)}},{key:"onSpill",value:function(e){var t=this.props,n=t.removeOnSpill,r=t.revertOnSpill;n&&!r&&E(e.item)}},{key:"onSelect",value:function(e){var t=this.props,n=t.list,r=t.setList,o=n.map((function(e){return N(N({},e),{},{selected:!1})}));e.newIndicies.forEach((function(t){var n=t.index;if(-1===n)return console.log('"'.concat(e.type,'" had indice of "').concat(t.index,"\", which is probably -1 and doesn't usually happen here.")),void console.log(e);o[n].selected=!0})),r(o,this.sortable,J)}},{key:"onDeselect",value:function(e){var t=this.props,n=t.list,r=t.setList,o=n.map((function(e){return N(N({},e),{},{selected:!1})}));e.newIndicies.forEach((function(e){var t=e.index;-1!==t&&(o[t].selected=!0)})),r(o,this.sortable,J)}},{key:"sortable",get:function(){var e=this.ref.current;if(null===e)return null;var t=Object.keys(e).find((function(e){return e.includes("Sortable")}));return t?e[t]:null}}])&&q(c.prototype,u),f&&q(c,f),d}();exports.ReactSortable=z,B(z,"defaultProps",{clone:function(e){return e}});
+var $8zHUo$sortablejs = __webpack_require__(/*! sortablejs */ "../node_modules/sortablejs/modular/sortable.esm.js");
+var $8zHUo$classnames = __webpack_require__(/*! classnames */ "../node_modules/classnames/index.js");
+var $8zHUo$react = __webpack_require__(/*! react */ "react");
+var $8zHUo$tinyinvariant = __webpack_require__(/*! tiny-invariant */ "../node_modules/tiny-invariant/dist/tiny-invariant.esm.js");
+
+function $parcel$interopDefault(a) {
+  return a && a.__esModule ? a.default : a;
+}
+function $parcel$export(e, n, v, s) {
+  Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
+}
+function $parcel$exportWildcard(dest, source) {
+  Object.keys(source).forEach(function(key) {
+    if (key === 'default' || key === '__esModule' || dest.hasOwnProperty(key)) {
+      return;
+    }
+
+    Object.defineProperty(dest, key, {
+      enumerable: true,
+      get: function get() {
+        return source[key];
+      }
+    });
+  });
+
+  return dest;
+}
+
+$parcel$export(module.exports, "Sortable", () => $882b6d93070905b3$re_export$Sortable);
+$parcel$export(module.exports, "Direction", () => $882b6d93070905b3$re_export$Direction);
+$parcel$export(module.exports, "DOMRect", () => $882b6d93070905b3$re_export$DOMRect);
+$parcel$export(module.exports, "GroupOptions", () => $882b6d93070905b3$re_export$GroupOptions);
+$parcel$export(module.exports, "MoveEvent", () => $882b6d93070905b3$re_export$MoveEvent);
+$parcel$export(module.exports, "Options", () => $882b6d93070905b3$re_export$Options);
+$parcel$export(module.exports, "PullResult", () => $882b6d93070905b3$re_export$PullResult);
+$parcel$export(module.exports, "PutResult", () => $882b6d93070905b3$re_export$PutResult);
+$parcel$export(module.exports, "SortableEvent", () => $882b6d93070905b3$re_export$SortableEvent);
+$parcel$export(module.exports, "SortableOptions", () => $882b6d93070905b3$re_export$SortableOptions);
+$parcel$export(module.exports, "Utils", () => $882b6d93070905b3$re_export$Utils);
+$parcel$export(module.exports, "ReactSortable", () => $7fe8e3ea572bda7a$export$11bbed9ee0012c13);
+
+
+
+
+
+function $eb03e74f8f7db1f3$export$1d0aa160432dfea5(node) {
+    if (node.parentElement !== null) node.parentElement.removeChild(node);
+}
+function $eb03e74f8f7db1f3$export$6d240faa51aa562f(parent, newChild, index) {
+    const refChild = parent.children[index] || null;
+    parent.insertBefore(newChild, refChild);
+}
+function $eb03e74f8f7db1f3$export$d7d742816c28cf91(customs) {
+    $eb03e74f8f7db1f3$export$77f49a256021c8de(customs);
+    $eb03e74f8f7db1f3$export$a6177d5829f70ebc(customs);
+}
+function $eb03e74f8f7db1f3$export$77f49a256021c8de(customs) {
+    customs.forEach((curr)=>$eb03e74f8f7db1f3$export$1d0aa160432dfea5(curr.element));
+}
+function $eb03e74f8f7db1f3$export$a6177d5829f70ebc(customs) {
+    customs.forEach((curr)=>{
+        $eb03e74f8f7db1f3$export$6d240faa51aa562f(curr.parentElement, curr.element, curr.oldIndex);
+    });
+}
+function $eb03e74f8f7db1f3$export$4655efe700f887a(evt, list) {
+    const mode = $eb03e74f8f7db1f3$export$1fc0f6205829e19c(evt);
+    const parentElement = {
+        parentElement: evt.from
+    };
+    let custom = [];
+    switch(mode){
+        case "normal":
+            /* eslint-disable */ const item = {
+                element: evt.item,
+                newIndex: evt.newIndex,
+                oldIndex: evt.oldIndex,
+                parentElement: evt.from
+            };
+            custom = [
+                item
+            ];
+            break;
+        case "swap":
+            const drag = {
+                element: evt.item,
+                oldIndex: evt.oldIndex,
+                newIndex: evt.newIndex,
+                ...parentElement
+            };
+            const swap = {
+                element: evt.swapItem,
+                oldIndex: evt.newIndex,
+                newIndex: evt.oldIndex,
+                ...parentElement
+            };
+            custom = [
+                drag,
+                swap
+            ];
+            break;
+        case "multidrag":
+            custom = evt.oldIndicies.map((curr, index)=>({
+                    element: curr.multiDragElement,
+                    oldIndex: curr.index,
+                    newIndex: evt.newIndicies[index].index,
+                    ...parentElement
+                }));
+            break;
+    }
+    /* eslint-enable */ const customs = $eb03e74f8f7db1f3$export$bc06a3af7dc65f53(custom, list);
+    return customs;
+}
+function $eb03e74f8f7db1f3$export$c25cf8080bd305ec(normalized, list) {
+    const a = $eb03e74f8f7db1f3$export$be2da95e6167b0bd(normalized, list);
+    const b = $eb03e74f8f7db1f3$export$eca851ee65ae17e4(normalized, a);
+    return b;
+}
+function $eb03e74f8f7db1f3$export$be2da95e6167b0bd(normalized, list) {
+    const newList = [
+        ...list
+    ];
+    normalized.concat().reverse().forEach((curr)=>newList.splice(curr.oldIndex, 1));
+    return newList;
+}
+function $eb03e74f8f7db1f3$export$eca851ee65ae17e4(normalized, list, evt, clone) {
+    const newList = [
+        ...list
+    ];
+    normalized.forEach((curr)=>{
+        const newItem = clone && evt && clone(curr.item, evt);
+        newList.splice(curr.newIndex, 0, newItem || curr.item);
+    });
+    return newList;
+}
+function $eb03e74f8f7db1f3$export$1fc0f6205829e19c(evt) {
+    if (evt.oldIndicies && evt.oldIndicies.length > 0) return "multidrag";
+    if (evt.swapItem) return "swap";
+    return "normal";
+}
+function $eb03e74f8f7db1f3$export$bc06a3af7dc65f53(inputs, list) {
+    const normalized = inputs.map((curr)=>({
+            ...curr,
+            item: list[curr.oldIndex]
+        })).sort((a, b)=>a.oldIndex - b.oldIndex);
+    return normalized;
+}
+function $eb03e74f8f7db1f3$export$7553c81e62e31b7e(props) {
+    /* eslint-disable */ const { list: // react sortable props
+    list , setList: setList , children: children , tag: tag , style: style , className: className , clone: clone , onAdd: // sortable options that have methods we want to overwrite
+    onAdd , onChange: onChange , onChoose: onChoose , onClone: onClone , onEnd: onEnd , onFilter: onFilter , onRemove: onRemove , onSort: onSort , onStart: onStart , onUnchoose: onUnchoose , onUpdate: onUpdate , onMove: onMove , onSpill: onSpill , onSelect: onSelect , onDeselect: onDeselect , ...options } = props;
+    /* eslint-enable */ return options;
+}
+
+
+/** Holds a global reference for which react element is being dragged */ // @todo - use context to manage this. How does one use 2 different providers?
+const $7fe8e3ea572bda7a$var$store = {
+    dragging: null
+};
+class $7fe8e3ea572bda7a$export$11bbed9ee0012c13 extends (0, $8zHUo$react.Component) {
+    /* eslint-disable-next-line */ static defaultProps = {
+        clone: (item)=>item
+    };
+    constructor(props){
+        super(props);
+        // @todo forward ref this component
+        this.ref = /*#__PURE__*/ (0, $8zHUo$react.createRef)();
+        // make all state false because we can't change sortable unless a mouse gesture is made.
+        const newList = [
+            ...props.list
+        ].map((item)=>Object.assign(item, {
+                chosen: false,
+                selected: false
+            }));
+        props.setList(newList, this.sortable, $7fe8e3ea572bda7a$var$store);
+        (0, ($parcel$interopDefault($8zHUo$tinyinvariant)))(//@ts-expect-error: Doesn't exist. Will deprecate soon.
+        !props.plugins, `
+Plugins prop is no longer supported.
+Instead, mount it with "Sortable.mount(new MultiDrag())"
+Please read the updated README.md at https://github.com/SortableJS/react-sortablejs.
+      `);
+    }
+    componentDidMount() {
+        if (this.ref.current === null) return;
+        const newOptions = this.makeOptions();
+        (0, ($parcel$interopDefault($8zHUo$sortablejs))).create(this.ref.current, newOptions);
+    }
+    componentDidUpdate(prevProps) {
+        if (prevProps.disabled !== this.props.disabled && this.sortable) this.sortable.option("disabled", this.props.disabled);
+    }
+    render() {
+        const { tag: tag , style: style , className: className , id: id  } = this.props;
+        const classicProps = {
+            style: style,
+            className: className,
+            id: id
+        };
+        // if no tag, default to a `div` element.
+        const newTag = !tag || tag === null ? "div" : tag;
+        return /*#__PURE__*/ (0, $8zHUo$react.createElement)(newTag, {
+            // @todo - find a way (perhaps with the callback) to allow AntD components to work
+            ref: this.ref,
+            ...classicProps
+        }, this.getChildren());
+    }
+    getChildren() {
+        const { children: children , dataIdAttr: dataIdAttr , selectedClass: selectedClass = "sortable-selected" , chosenClass: chosenClass = "sortable-chosen" , dragClass: /* eslint-disable */ dragClass = "sortable-drag" , fallbackClass: fallbackClass = "sortable-falback" , ghostClass: ghostClass = "sortable-ghost" , swapClass: swapClass = "sortable-swap-highlight" , filter: /* eslint-enable */ filter = "sortable-filter" , list: list ,  } = this.props;
+        // if no children, don't do anything.
+        if (!children || children == null) return null;
+        const dataid = dataIdAttr || "data-id";
+        /* eslint-disable-next-line */ return (0, $8zHUo$react.Children).map(children, (child, index)=>{
+            if (child === undefined) return undefined;
+            const item = list[index] || {};
+            const { className: prevClassName  } = child.props;
+            // @todo - handle the function if avalable. I don't think anyone will be doing this soon.
+            const filtered = typeof filter === "string" && {
+                [filter.replace(".", "")]: !!item.filtered
+            };
+            const className = (0, ($parcel$interopDefault($8zHUo$classnames)))(prevClassName, {
+                [selectedClass]: item.selected,
+                [chosenClass]: item.chosen,
+                ...filtered
+            });
+            return /*#__PURE__*/ (0, $8zHUo$react.cloneElement)(child, {
+                [dataid]: child.key,
+                className: className
+            });
+        });
+    }
+    /** Appends the `sortable` property to this component */ get sortable() {
+        const el = this.ref.current;
+        if (el === null) return null;
+        const key = Object.keys(el).find((k)=>k.includes("Sortable"));
+        if (!key) return null;
+        //@ts-expect-error: fix me.
+        return el[key];
+    }
+    /** Converts all the props from `ReactSortable` into the `options` object that `Sortable.create(el, [options])` can use. */ makeOptions() {
+        const DOMHandlers = [
+            "onAdd",
+            "onChoose",
+            "onDeselect",
+            "onEnd",
+            "onRemove",
+            "onSelect",
+            "onSpill",
+            "onStart",
+            "onUnchoose",
+            "onUpdate", 
+        ];
+        const NonDOMHandlers = [
+            "onChange",
+            "onClone",
+            "onFilter",
+            "onSort", 
+        ];
+        const newOptions = (0, $eb03e74f8f7db1f3$export$7553c81e62e31b7e)(this.props);
+        DOMHandlers.forEach((name)=>newOptions[name] = this.prepareOnHandlerPropAndDOM(name));
+        NonDOMHandlers.forEach((name)=>newOptions[name] = this.prepareOnHandlerProp(name));
+        /** onMove has 2 arguments and needs to be handled seperately. */ const onMove1 = (evt, originalEvt)=>{
+            const { onMove: onMove  } = this.props;
+            const defaultValue = evt.willInsertAfter || -1;
+            if (!onMove) return defaultValue;
+            const result = onMove(evt, originalEvt, this.sortable, $7fe8e3ea572bda7a$var$store);
+            if (typeof result === "undefined") return false;
+            return result;
+        };
+        return {
+            ...newOptions,
+            onMove: onMove1
+        };
+    }
+    /** Prepares a method that will be used in the sortable options to call an `on[Handler]` prop & an `on[Handler]` ReactSortable method.  */ prepareOnHandlerPropAndDOM(evtName) {
+        return (evt)=>{
+            // call the component prop
+            this.callOnHandlerProp(evt, evtName);
+            // calls state change
+            //@ts-expect-error: until @types multidrag item is in
+            this[evtName](evt);
+        };
+    }
+    /** Prepares a method that will be used in the sortable options to call an `on[Handler]` prop */ prepareOnHandlerProp(evtName) {
+        return (evt)=>{
+            // call the component prop
+            this.callOnHandlerProp(evt, evtName);
+        };
+    }
+    /** Calls the `props.on[Handler]` function */ callOnHandlerProp(evt, evtName) {
+        const propEvent = this.props[evtName];
+        if (propEvent) propEvent(evt, this.sortable, $7fe8e3ea572bda7a$var$store);
+    }
+    // SORTABLE DOM HANDLING
+    onAdd(evt) {
+        const { list: list , setList: setList , clone: clone  } = this.props;
+        /* eslint-disable-next-line */ const otherList = [
+            ...$7fe8e3ea572bda7a$var$store.dragging.props.list
+        ];
+        const customs = (0, $eb03e74f8f7db1f3$export$4655efe700f887a)(evt, otherList);
+        (0, $eb03e74f8f7db1f3$export$77f49a256021c8de)(customs);
+        const newList = (0, $eb03e74f8f7db1f3$export$eca851ee65ae17e4)(customs, list, evt, clone).map((item)=>Object.assign(item, {
+                selected: false
+            }));
+        setList(newList, this.sortable, $7fe8e3ea572bda7a$var$store);
+    }
+    onRemove(evt) {
+        const { list: list , setList: setList  } = this.props;
+        const mode = (0, $eb03e74f8f7db1f3$export$1fc0f6205829e19c)(evt);
+        const customs = (0, $eb03e74f8f7db1f3$export$4655efe700f887a)(evt, list);
+        (0, $eb03e74f8f7db1f3$export$a6177d5829f70ebc)(customs);
+        let newList = [
+            ...list
+        ];
+        // remove state if not in clone mode. otherwise, keep.
+        if (evt.pullMode !== "clone") newList = (0, $eb03e74f8f7db1f3$export$be2da95e6167b0bd)(customs, newList);
+        else {
+            // switch used to get the clone
+            let customClones = customs;
+            switch(mode){
+                case "multidrag":
+                    customClones = customs.map((item, index)=>({
+                            ...item,
+                            element: evt.clones[index]
+                        }));
+                    break;
+                case "normal":
+                    customClones = customs.map((item)=>({
+                            ...item,
+                            element: evt.clone
+                        }));
+                    break;
+                case "swap":
+                default:
+                    (0, ($parcel$interopDefault($8zHUo$tinyinvariant)))(true, `mode "${mode}" cannot clone. Please remove "props.clone" from <ReactSortable/> when using the "${mode}" plugin`);
+            }
+            (0, $eb03e74f8f7db1f3$export$77f49a256021c8de)(customClones);
+            // replace selected items with cloned items
+            customs.forEach((curr)=>{
+                const index = curr.oldIndex;
+                /* eslint-disable-next-line */ const newItem = this.props.clone(curr.item, evt);
+                newList.splice(index, 1, newItem);
+            });
+        }
+        // remove item.selected from list
+        newList = newList.map((item)=>Object.assign(item, {
+                selected: false
+            }));
+        setList(newList, this.sortable, $7fe8e3ea572bda7a$var$store);
+    }
+    onUpdate(evt) {
+        const { list: list , setList: setList  } = this.props;
+        const customs = (0, $eb03e74f8f7db1f3$export$4655efe700f887a)(evt, list);
+        (0, $eb03e74f8f7db1f3$export$77f49a256021c8de)(customs);
+        (0, $eb03e74f8f7db1f3$export$a6177d5829f70ebc)(customs);
+        const newList = (0, $eb03e74f8f7db1f3$export$c25cf8080bd305ec)(customs, list);
+        return setList(newList, this.sortable, $7fe8e3ea572bda7a$var$store);
+    }
+    onStart() {
+        $7fe8e3ea572bda7a$var$store.dragging = this;
+    }
+    onEnd() {
+        $7fe8e3ea572bda7a$var$store.dragging = null;
+    }
+    onChoose(evt) {
+        const { list: list , setList: setList  } = this.props;
+        const newList = list.map((item, index)=>{
+            let newItem = item;
+            if (index === evt.oldIndex) newItem = Object.assign(item, {
+                chosen: true
+            });
+            return newItem;
+        });
+        setList(newList, this.sortable, $7fe8e3ea572bda7a$var$store);
+    }
+    onUnchoose(evt) {
+        const { list: list , setList: setList  } = this.props;
+        const newList = list.map((item, index)=>{
+            let newItem = item;
+            if (index === evt.oldIndex) newItem = Object.assign(newItem, {
+                chosen: false
+            });
+            return newItem;
+        });
+        setList(newList, this.sortable, $7fe8e3ea572bda7a$var$store);
+    }
+    onSpill(evt) {
+        const { removeOnSpill: removeOnSpill , revertOnSpill: revertOnSpill  } = this.props;
+        if (removeOnSpill && !revertOnSpill) (0, $eb03e74f8f7db1f3$export$1d0aa160432dfea5)(evt.item);
+    }
+    onSelect(evt) {
+        const { list: list , setList: setList  } = this.props;
+        const newList = list.map((item)=>Object.assign(item, {
+                selected: false
+            }));
+        evt.newIndicies.forEach((curr)=>{
+            const index = curr.index;
+            if (index === -1) {
+                console.log(`"${evt.type}" had indice of "${curr.index}", which is probably -1 and doesn't usually happen here.`);
+                console.log(evt);
+                return;
+            }
+            newList[index].selected = true;
+        });
+        setList(newList, this.sortable, $7fe8e3ea572bda7a$var$store);
+    }
+    onDeselect(evt) {
+        const { list: list , setList: setList  } = this.props;
+        const newList = list.map((item)=>Object.assign(item, {
+                selected: false
+            }));
+        evt.newIndicies.forEach((curr)=>{
+            const index = curr.index;
+            if (index === -1) return;
+            newList[index].selected = true;
+        });
+        setList(newList, this.sortable, $7fe8e3ea572bda7a$var$store);
+    }
+}
+
+
+var $faefaad95e5fcca0$exports = {};
+
+
+$parcel$exportWildcard(module.exports, $faefaad95e5fcca0$exports);
+
+
 //# sourceMappingURL=index.js.map
 
 
@@ -3206,16 +4541,18 @@ var e=g(__webpack_require__(/*! tiny-invariant */ "../node_modules/tiny-invarian
 /*!**********************************************************!*\
   !*** ../node_modules/sortablejs/modular/sortable.esm.js ***!
   \**********************************************************/
-/*! exports provided: default, MultiDrag, Sortable, Swap */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MultiDrag", function() { return MultiDragPlugin; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Sortable", function() { return Sortable; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Swap", function() { return SwapPlugin; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "MultiDrag": () => (/* binding */ MultiDragPlugin),
+/* harmony export */   "Sortable": () => (/* binding */ Sortable),
+/* harmony export */   "Swap": () => (/* binding */ SwapPlugin),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
 /**!
- * Sortable 1.14.0
+ * Sortable 1.15.0
  * @author	RubaXa   <trash@rubaxa.org>
  * @author	owenm    <owen23355@gmail.com>
  * @license MIT
@@ -3376,7 +4713,7 @@ function _nonIterableSpread() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
-var version = "1.14.0";
+var version = "1.15.0";
 
 function userAgent(pattern) {
   if (typeof window !== 'undefined' && window.navigator) {
@@ -4383,7 +5720,7 @@ _detectNearestEmptySortable = function _detectNearestEmptySortable(x, y) {
 }; // #1184 fix - Prevent click event on fallback if dragged but item not changed position
 
 
-if (documentExists) {
+if (documentExists && !ChromeForAndroid) {
   document.addEventListener('click', function (evt) {
     if (ignoreNextClick) {
       evt.preventDefault();
@@ -5002,6 +6339,7 @@ Sortable.prototype =
 
     if (!Sortable.eventCanceled) {
       cloneEl = clone(dragEl);
+      cloneEl.removeAttribute("id");
       cloneEl.draggable = false;
       cloneEl.style['will-change'] = '';
 
@@ -5243,7 +6581,14 @@ Sortable.prototype =
 
         if (_onMove(rootEl, el, dragEl, dragRect, target, targetRect, evt, !!target) !== false) {
           capture();
-          el.appendChild(dragEl);
+
+          if (elLastChild && elLastChild.nextSibling) {
+            // the last draggable element is not the last node
+            el.insertBefore(dragEl, elLastChild.nextSibling);
+          } else {
+            el.appendChild(dragEl);
+          }
+
           parentEl = el; // actualization
 
           changed();
@@ -6388,11 +7733,13 @@ function MultiDragPlugin() {
       }
     }
 
-    if (sortable.options.supportPointer) {
-      on(document, 'pointerup', this._deselectMultiDrag);
-    } else {
-      on(document, 'mouseup', this._deselectMultiDrag);
-      on(document, 'touchend', this._deselectMultiDrag);
+    if (!sortable.options.avoidImplicitDeselect) {
+      if (sortable.options.supportPointer) {
+        on(document, 'pointerup', this._deselectMultiDrag);
+      } else {
+        on(document, 'mouseup', this._deselectMultiDrag);
+        on(document, 'touchend', this._deselectMultiDrag);
+      }
     }
 
     on(document, 'keydown', this._checkKeyDown);
@@ -6400,6 +7747,7 @@ function MultiDragPlugin() {
     this.defaults = {
       selectedClass: 'sortable-selected',
       multiDragKey: null,
+      avoidImplicitDeselect: false,
       setData: function setData(dataTransfer, dragEl) {
         var data = '';
 
@@ -6690,7 +8038,7 @@ function MultiDragPlugin() {
             rootEl: rootEl,
             name: 'select',
             targetEl: dragEl$1,
-            originalEvt: evt
+            originalEvent: evt
           }); // Modifier activated, select from last to dragEl
 
           if (evt.shiftKey && lastMultiDragSelect && sortable.el.contains(lastMultiDragSelect)) {
@@ -6719,7 +8067,7 @@ function MultiDragPlugin() {
                   rootEl: rootEl,
                   name: 'select',
                   targetEl: children[i],
-                  originalEvt: evt
+                  originalEvent: evt
                 });
               }
             }
@@ -6736,7 +8084,7 @@ function MultiDragPlugin() {
             rootEl: rootEl,
             name: 'deselect',
             targetEl: dragEl$1,
-            originalEvt: evt
+            originalEvent: evt
           });
         }
       } // Multi-drag drop
@@ -6847,7 +8195,7 @@ function MultiDragPlugin() {
           rootEl: this.sortable.el,
           name: 'deselect',
           targetEl: el,
-          originalEvt: evt
+          originalEvent: evt
         });
       }
     },
@@ -6985,7 +8333,7 @@ function removeMultiDragElements() {
 Sortable.mount(new AutoScrollPlugin());
 Sortable.mount(Remove, Revert);
 
-/* harmony default export */ __webpack_exports__["default"] = (Sortable);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Sortable);
 
 
 
@@ -6995,12 +8343,13 @@ Sortable.mount(Remove, Revert);
 /*!*****************************************************************!*\
   !*** ../node_modules/tiny-invariant/dist/tiny-invariant.esm.js ***!
   \*****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return invariant; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ invariant)
+/* harmony export */ });
 var isProduction = "development" === 'production';
 var prefix = 'Invariant failed';
 function invariant(condition, message) {
@@ -7020,1403 +8369,207 @@ function invariant(condition, message) {
 
 /***/ }),
 
-/***/ "../node_modules/tslib/tslib.es6.js":
-/*!******************************************!*\
-  !*** ../node_modules/tslib/tslib.es6.js ***!
-  \******************************************/
-/*! exports provided: __extends, __assign, __rest, __decorate, __param, __metadata, __awaiter, __generator, __createBinding, __exportStar, __values, __read, __spread, __spreadArrays, __spreadArray, __await, __asyncGenerator, __asyncDelegator, __asyncValues, __makeTemplateObject, __importStar, __importDefault, __classPrivateFieldGet, __classPrivateFieldSet */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "@grafana/data":
+/*!********************************!*\
+  !*** external "@grafana/data" ***!
+  \********************************/
+/***/ ((module) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__extends", function() { return __extends; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__assign", function() { return __assign; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__rest", function() { return __rest; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__decorate", function() { return __decorate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__param", function() { return __param; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__metadata", function() { return __metadata; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__awaiter", function() { return __awaiter; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__generator", function() { return __generator; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__createBinding", function() { return __createBinding; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__exportStar", function() { return __exportStar; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__values", function() { return __values; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__read", function() { return __read; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__spread", function() { return __spread; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__spreadArrays", function() { return __spreadArrays; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__spreadArray", function() { return __spreadArray; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__await", function() { return __await; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncGenerator", function() { return __asyncGenerator; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncDelegator", function() { return __asyncDelegator; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncValues", function() { return __asyncValues; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__makeTemplateObject", function() { return __makeTemplateObject; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importStar", function() { return __importStar; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importDefault", function() { return __importDefault; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__classPrivateFieldGet", function() { return __classPrivateFieldGet; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__classPrivateFieldSet", function() { return __classPrivateFieldSet; });
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation.
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */
-/* global Reflect, Promise */
-
-var extendStatics = function(d, b) {
-    extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-    return extendStatics(d, b);
-};
-
-function __extends(d, b) {
-    if (typeof b !== "function" && b !== null)
-        throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-    extendStatics(d, b);
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-}
-
-var __assign = function() {
-    __assign = Object.assign || function __assign(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-        }
-        return t;
-    }
-    return __assign.apply(this, arguments);
-}
-
-function __rest(s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-}
-
-function __decorate(decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-}
-
-function __param(paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-}
-
-function __metadata(metadataKey, metadataValue) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
-}
-
-function __awaiter(thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-}
-
-function __generator(thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-}
-
-var __createBinding = Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-});
-
-function __exportStar(m, o) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(o, p)) __createBinding(o, m, p);
-}
-
-function __values(o) {
-    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
-    if (m) return m.call(o);
-    if (o && typeof o.length === "number") return {
-        next: function () {
-            if (o && i >= o.length) o = void 0;
-            return { value: o && o[i++], done: !o };
-        }
-    };
-    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
-}
-
-function __read(o, n) {
-    var m = typeof Symbol === "function" && o[Symbol.iterator];
-    if (!m) return o;
-    var i = m.call(o), r, ar = [], e;
-    try {
-        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-    }
-    catch (error) { e = { error: error }; }
-    finally {
-        try {
-            if (r && !r.done && (m = i["return"])) m.call(i);
-        }
-        finally { if (e) throw e.error; }
-    }
-    return ar;
-}
-
-/** @deprecated */
-function __spread() {
-    for (var ar = [], i = 0; i < arguments.length; i++)
-        ar = ar.concat(__read(arguments[i]));
-    return ar;
-}
-
-/** @deprecated */
-function __spreadArrays() {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
-}
-
-function __spreadArray(to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-}
-
-function __await(v) {
-    return this instanceof __await ? (this.v = v, this) : new __await(v);
-}
-
-function __asyncGenerator(thisArg, _arguments, generator) {
-    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-    var g = generator.apply(thisArg, _arguments || []), i, q = [];
-    return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
-    function verb(n) { if (g[n]) i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
-    function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
-    function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
-    function fulfill(value) { resume("next", value); }
-    function reject(value) { resume("throw", value); }
-    function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
-}
-
-function __asyncDelegator(o) {
-    var i, p;
-    return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
-    function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v; } : f; }
-}
-
-function __asyncValues(o) {
-    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-    var m = o[Symbol.asyncIterator], i;
-    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
-    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
-    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
-}
-
-function __makeTemplateObject(cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
-};
-
-var __setModuleDefault = Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-};
-
-function __importStar(mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-}
-
-function __importDefault(mod) {
-    return (mod && mod.__esModule) ? mod : { default: mod };
-}
-
-function __classPrivateFieldGet(receiver, state, kind, f) {
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
-}
-
-function __classPrivateFieldSet(receiver, state, value, kind, f) {
-    if (kind === "m") throw new TypeError("Private method is not writable");
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
-    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
-}
-
+module.exports = __WEBPACK_EXTERNAL_MODULE__grafana_data__;
 
 /***/ }),
 
-/***/ "./ImageItPanel.tsx":
+/***/ "@grafana/ui":
+/*!******************************!*\
+  !*** external "@grafana/ui" ***!
+  \******************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = __WEBPACK_EXTERNAL_MODULE__grafana_ui__;
+
+/***/ }),
+
+/***/ "emotion":
 /*!**************************!*\
-  !*** ./ImageItPanel.tsx ***!
+  !*** external "emotion" ***!
   \**************************/
-/*! exports provided: ImageItPanel */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((module) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageItPanel", function() { return ImageItPanel; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _grafana_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @grafana/data */ "@grafana/data");
-/* harmony import */ var _grafana_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_grafana_data__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var emotion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! emotion */ "emotion");
-/* harmony import */ var emotion__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(emotion__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash */ "lodash");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @grafana/ui */ "@grafana/ui");
-/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_grafana_ui__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _Sensor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Sensor */ "./Sensor.tsx");
-
-
-
-
- // import { stylesFactory, useTheme } from '@grafana/ui';
-
-
-
-var ImageItPanel = function ImageItPanel(_a) {
-  var options = _a.options,
-      data = _a.data,
-      width = _a.width,
-      height = _a.height,
-      onOptionsChange = _a.onOptionsChange,
-      fieldConfig = _a.fieldConfig,
-      replaceVariables = _a.replaceVariables;
-  var forceImageRefresh = options.forceImageRefresh,
-      lockSensors = options.lockSensors,
-      mappings = options.mappings,
-      sensors = options.sensors,
-      sensorsColorGray = options.sensorsColorGray,
-      sensorsColorRed = options.sensorsColorRed,
-      sensorsColorYellow = options.sensorsColorYellow,
-      sensorsColorGreen = options.sensorsColorGreen;
-  var theme = Object(_grafana_ui__WEBPACK_IMPORTED_MODULE_5__["useTheme"])();
-  var styles = getStyles();
-  var imageRef = Object(react__WEBPACK_IMPORTED_MODULE_1__["useRef"])(null);
-
-  var _b = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({
-    height: 0,
-    width: 0
-  }), 2),
-      imageDimensions = _b[0],
-      setImageDimensions = _b[1];
-
-  var _c = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(options.imageUrl), 2),
-      imageUrl = _c[0],
-      setImageUrl = _c[1];
-
-  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
-    if (forceImageRefresh) {
-      setImageUrl(options.imageUrl + "?" + Object(lodash__WEBPACK_IMPORTED_MODULE_4__["uniqueId"])());
-    } else {
-      setImageUrl(options.imageUrl);
-    }
-  }, [data, options.imageUrl, forceImageRefresh]);
-  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
-    setImageDimensions({
-      height: imageRef.current.offsetHeight,
-      width: imageRef.current.offsetWidth
-    });
-  }, [width, height]);
-
-  var onImageLoad = function onImageLoad(_a) {
-    var image = _a.target;
-    setImageDimensions({
-      height: image.offsetHeight,
-      width: image.offsetWidth
-    });
-  };
-
-  var onSensorPositionChange = function onSensorPositionChange(position, index) {
-    var newOptions = Object(lodash__WEBPACK_IMPORTED_MODULE_4__["cloneDeep"])(options);
-    newOptions.sensors[index].position = position;
-    onOptionsChange(newOptions);
-  };
-
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: styles.wrapper
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    id: "imageItBgImage",
-    className: Object(emotion__WEBPACK_IMPORTED_MODULE_3__["cx"])(styles.imageWrapper, Object(emotion__WEBPACK_IMPORTED_MODULE_3__["css"])(templateObject_1 || (templateObject_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n            max-height: ", "px;\n          "], ["\n            max-height: ", "px;\n          "])), height))
-  }, sensors && sensors.map(function (sensor, index) {
-    // Get serie for sensor based on refId or alias fields
-    // let value: Number | undefined = undefined;
-    var serie = data.series.find(function (serie) {
-      return sensor.query.id ? sensor.query.id === serie.refId : sensor.query.alias === serie.name;
-    });
-    var value = undefined;
-
-    if (serie !== undefined) {
-      var fieldDisplay = Object(_grafana_data__WEBPACK_IMPORTED_MODULE_2__["getFieldDisplayValues"])({
-        data: [serie],
-        reduceOptions: {
-          calcs: [_grafana_data__WEBPACK_IMPORTED_MODULE_2__["ReducerID"].last]
-        },
-        fieldConfig: fieldConfig,
-        replaceVariables: replaceVariables,
-        theme: theme
-      })[0];
-      value = fieldDisplay.display.numeric;
-    } // Get mappings by ids
-
-
-    var sensorMappings = sensor.mappingIds.map(function (mappingId) {
-      return mappings.find(function (mapping) {
-        return mappingId === mapping.id;
-      });
-    }).filter(function (mapping) {
-      return typeof mapping !== 'undefined';
-    });
-    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Sensor__WEBPACK_IMPORTED_MODULE_6__["Sensor"], {
-      sensorscolorgray: sensorsColorGray,
-      sensorscolorred: sensorsColorRed,
-      sensorscoloryellow: sensorsColorYellow,
-      sensorscolorgreen: sensorsColorGreen,
-      draggable: lockSensors,
-      sensor: sensor,
-      mappings: sensorMappings,
-      index: index,
-      link: replaceVariables(sensor.link),
-      name: replaceVariables(sensor.name),
-      imageDimensions: imageDimensions,
-      onPositionChange: onSensorPositionChange,
-      value: value,
-      key: index,
-      sensorsTextSize: sensor.sensorsTextSize
-    });
-  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
-    className: Object(emotion__WEBPACK_IMPORTED_MODULE_3__["cx"])(styles.bgImage, Object(emotion__WEBPACK_IMPORTED_MODULE_3__["css"])(templateObject_2 || (templateObject_2 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n              max-height: ", "px;\n            "], ["\n              max-height: ", "px;\n            "])), height)),
-    src: imageUrl,
-    ref: imageRef,
-    onLoad: onImageLoad,
-    draggable: "false"
-  })));
-};
-var getStyles = Object(_grafana_ui__WEBPACK_IMPORTED_MODULE_5__["stylesFactory"])(function () {
-  return {
-    wrapper: Object(emotion__WEBPACK_IMPORTED_MODULE_3__["css"])(templateObject_3 || (templateObject_3 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n      width: 100%;\n      height: 100%;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n    "], ["\n      width: 100%;\n      height: 100%;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n    "]))),
-    imageWrapper: Object(emotion__WEBPACK_IMPORTED_MODULE_3__["css"])(templateObject_4 || (templateObject_4 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n      position: relative;\n      display: inline-block;\n      max-width: 100%;\n    "], ["\n      position: relative;\n      display: inline-block;\n      max-width: 100%;\n    "]))),
-    bgImage: Object(emotion__WEBPACK_IMPORTED_MODULE_3__["css"])(templateObject_5 || (templateObject_5 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n      max-width: 100%;\n    "], ["\n      max-width: 100%;\n    "]))),
-    textBox: Object(emotion__WEBPACK_IMPORTED_MODULE_3__["css"])(templateObject_6 || (templateObject_6 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n      position: absolute;\n      bottom: 0;\n      left: 0;\n      padding: 10px;\n    "], ["\n      position: absolute;\n      bottom: 0;\n      left: 0;\n      padding: 10px;\n    "])))
-  };
-});
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6;
+module.exports = __WEBPACK_EXTERNAL_MODULE_emotion__;
 
 /***/ }),
 
-/***/ "./MappingOperators.ts":
-/*!*****************************!*\
-  !*** ./MappingOperators.ts ***!
-  \*****************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "lodash":
+/*!*************************!*\
+  !*** external "lodash" ***!
+  \*************************/
+/***/ ((module) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-function isEqualTo(a, b) {
-  // eslint-disable-next-line
-  return a !== undefined && b !== undefined ? a == b : false;
-}
-
-function isGreaterThan(a, b) {
-  return a !== undefined && b !== undefined ? a > b : false;
-}
-
-function isSmallerThan(a, b) {
-  return a !== undefined && b !== undefined ? a < b : false;
-}
-
-function isNotEqualTo(a, b) {
-  return !isEqualTo(a, b);
-}
-
-var MappingOperators = [{
-  id: 'equal',
-  operator: '=',
-  "function": isEqualTo,
-  description: 'Check if the two values are equal'
-}, {
-  id: 'notEqual',
-  operator: '!=',
-  "function": isNotEqualTo,
-  description: 'Check if the two values are not equal'
-}, {
-  id: 'greaterThan',
-  operator: '>',
-  "function": isGreaterThan
-}, {
-  id: 'smallerThan',
-  operator: '<',
-  "function": isSmallerThan
-}];
-/* harmony default export */ __webpack_exports__["default"] = (MappingOperators);
+module.exports = __WEBPACK_EXTERNAL_MODULE_lodash__;
 
 /***/ }),
 
-/***/ "./Sensor.tsx":
-/*!********************!*\
-  !*** ./Sensor.tsx ***!
-  \********************/
-/*! exports provided: Sensor */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
+/***/ ((module) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Sensor", function() { return Sensor; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "lodash");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var emotion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! emotion */ "emotion");
-/* harmony import */ var emotion__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(emotion__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_draggable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-draggable */ "../node_modules/react-draggable/build/cjs/cjs.js");
-/* harmony import */ var react_draggable__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_draggable__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @grafana/ui */ "@grafana/ui");
-/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_grafana_ui__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var MappingOperators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! MappingOperators */ "./MappingOperators.ts");
-/* harmony import */ var _grafana_data__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @grafana/data */ "@grafana/data");
-/* harmony import */ var _grafana_data__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_grafana_data__WEBPACK_IMPORTED_MODULE_7__);
-
-
-
-
-
-
-
-
-
-var pxToPerc = function pxToPerc(px, size) {
-  return px * 100 / size;
-};
-
-var percToPx = function percToPx(perc, size) {
-  return perc * size / 100;
-};
-
-var Sensor = function Sensor(props) {
-  var e_1, _a; // const theme = useTheme();
-
-
-  var draggable = props.draggable,
-      imageDimensions = props.imageDimensions,
-      onPositionChange = props.onPositionChange,
-      index = props.index,
-      link = props.link,
-      name = props.name,
-      mappings = props.mappings,
-      sensorscolorgray = props.sensorscolorgray,
-      sensorscolorred = props.sensorscolorred,
-      sensorscoloryellow = props.sensorscoloryellow,
-      sensorscolorgreen = props.sensorscolorgreen,
-      sensorsTextSize = props.sensorsTextSize;
-  var sensor = Object(lodash__WEBPACK_IMPORTED_MODULE_2__["clone"])(props.sensor);
-  var value = Object(lodash__WEBPACK_IMPORTED_MODULE_2__["clone"])(props.value);
-  var styles = getStyles();
-
-  var _b = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false), 2),
-      isMouseOver = _b[0],
-      setIsMouseOver = _b[1];
-
-  var onDragStop = function onDragStop(_event, data) {
-    var newPosition = {
-      x: pxToPerc(data.x, imageDimensions.width),
-      y: pxToPerc(data.y, imageDimensions.height)
-    };
-    onPositionChange(newPosition, index);
-  };
-
-  var sensorPosition = {
-    x: percToPx(sensor.position.x, imageDimensions.width),
-    y: percToPx(sensor.position.y, imageDimensions.height)
-  };
-
-  var _loop_1 = function _loop_1(mapping) {
-    var mappingOperator = MappingOperators__WEBPACK_IMPORTED_MODULE_6__["default"].find(function (mappingOperator) {
-      return mapping.operator === mappingOperator.id;
-    }); // Apply mapping function if it satisfies requirements
-
-    var isOverrode = mappingOperator === null || mappingOperator === void 0 ? void 0 : mappingOperator["function"](value, mapping.compareTo);
-
-    if (isOverrode) {
-      sensor = Object(lodash__WEBPACK_IMPORTED_MODULE_2__["merge"])(sensor, mapping.values);
-      value = mapping.values.overrideValue ? mapping.values.overrideValue : value;
-      delete sensor.overrideValue;
-      return "break";
-    }
-  };
-
-  try {
-    for (var mappings_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__values"])(mappings), mappings_1_1 = mappings_1.next(); !mappings_1_1.done; mappings_1_1 = mappings_1.next()) {
-      var mapping = mappings_1_1.value;
-
-      var state_1 = _loop_1(mapping);
-
-      if (state_1 === "break") break;
-    }
-  } catch (e_1_1) {
-    e_1 = {
-      error: e_1_1
-    };
-  } finally {
-    try {
-      if (mappings_1_1 && !mappings_1_1.done && (_a = mappings_1["return"])) _a.call(mappings_1);
-    } finally {
-      if (e_1) throw e_1.error;
-    }
-  }
-
-  if (value == sensorscolorgray) {
-    sensor.backgroundColor = "gray";
-  }
-
-  if (value == sensorscolorred) {
-    sensor.backgroundColor = "red";
-  }
-
-  if (value == sensorscoloryellow) {
-    sensor.backgroundColor = "yellow";
-  }
-
-  if (value == sensorscolorgreen) {
-    sensor.backgroundColor = "green";
-  } // Get and apply unit type formatter
-
-
-  var unit = sensor.unit;
-  var valueFormatter = Object(_grafana_data__WEBPACK_IMPORTED_MODULE_7__["getValueFormat"])(unit);
-  var formattedValue = valueFormatter(value, sensor.decimals);
-  var formattedValueString = value !== undefined ? Object(_grafana_data__WEBPACK_IMPORTED_MODULE_7__["formattedValueToString"])(formattedValue) : 'No data';
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, sensor.visible && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_draggable__WEBPACK_IMPORTED_MODULE_4___default.a, {
-    disabled: draggable,
-    bounds: "#imageItBgImage",
-    handle: ".handle",
-    onStop: onDragStop,
-    position: sensorPosition
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: Object(emotion__WEBPACK_IMPORTED_MODULE_3__["cx"])(styles.container, Object(emotion__WEBPACK_IMPORTED_MODULE_3__["css"])(templateObject_1 || (templateObject_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n                color: ", ";\n                background-color: ", ";\n                border-radius: 50%;\n                font-size: ", "px;\n              "], ["\n                color: ", ";\n                background-color: ", ";\n                border-radius: 50%;\n                font-size: ", "px;\n              "])), sensor.fontColor, sensor.backgroundColor, sensorsTextSize * imageDimensions.width / 50 / 10), sensor.backgroundBlink && styles.blink),
-    onMouseEnter: function onMouseEnter() {
-      return setIsMouseOver(true);
-    },
-    onMouseLeave: function onMouseLeave() {
-      return setIsMouseOver(false);
-    }
-  }, !draggable && isMouseOver && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: Object(emotion__WEBPACK_IMPORTED_MODULE_3__["cx"])(styles.handle, 'handle')
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "fa fa-bars"
-  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: Object(emotion__WEBPACK_IMPORTED_MODULE_3__["cx"])(styles.content)
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
-    className: Object(emotion__WEBPACK_IMPORTED_MODULE_3__["css"])(templateObject_2 || (templateObject_2 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n                      color: ", ";\n                    "], ["\n                      color: ", ";\n                    "])), sensor.fontColor),
-    href: link || '#'
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: Object(emotion__WEBPACK_IMPORTED_MODULE_3__["cx"])(styles.name)
-  }, name), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: Object(emotion__WEBPACK_IMPORTED_MODULE_3__["cx"])(styles.value, sensor.valueBlink && styles.blink, sensor.bold && styles.bold)
-  }, formattedValueString)))))));
-};
-var blink = Object(emotion__WEBPACK_IMPORTED_MODULE_3__["keyframes"])(templateObject_3 || (templateObject_3 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n  50% {\n    opacity: 0;\n  }\n"], ["\n  50% {\n    opacity: 0;\n  }\n"])));
-var getStyles = Object(_grafana_ui__WEBPACK_IMPORTED_MODULE_5__["stylesFactory"])(function () {
-  return {
-    container: Object(emotion__WEBPACK_IMPORTED_MODULE_3__["css"])(templateObject_4 || (templateObject_4 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n      position: absolute;\n      padding: 0.5em;\n    "], ["\n      position: absolute;\n      padding: 0.5em;\n    "]))),
-    handle: Object(emotion__WEBPACK_IMPORTED_MODULE_3__["css"])(templateObject_5 || (templateObject_5 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n      float: right;\n      margin-left: 0.5em;\n    "], ["\n      float: right;\n      margin-left: 0.5em;\n    "]))),
-    content: Object(emotion__WEBPACK_IMPORTED_MODULE_3__["css"])(templateObject_6 || (templateObject_6 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n      float: left;\n    "], ["\n      float: left;\n    "]))),
-    name: Object(emotion__WEBPACK_IMPORTED_MODULE_3__["css"])(templateObject_7 || (templateObject_7 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n      font-size: 0.5em;\n    "], ["\n      font-size: 0.5em;\n    "]))),
-    value: Object(emotion__WEBPACK_IMPORTED_MODULE_3__["css"])(templateObject_8 || (templateObject_8 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])([""], [""]))),
-    blink: Object(emotion__WEBPACK_IMPORTED_MODULE_3__["css"])(templateObject_9 || (templateObject_9 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n      animation: ", " 1s linear infinite;\n    "], ["\n      animation: ", " 1s linear infinite;\n    "])), blink),
-    bold: Object(emotion__WEBPACK_IMPORTED_MODULE_3__["css"])(templateObject_10 || (templateObject_10 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n      font-weight: bold;\n    "], ["\n      font-weight: bold;\n    "])))
-  };
-});
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10;
+module.exports = __WEBPACK_EXTERNAL_MODULE_react__;
 
 /***/ }),
 
-/***/ "./components/ColorDot.tsx":
-/*!*********************************!*\
-  !*** ./components/ColorDot.tsx ***!
-  \*********************************/
-/*! exports provided: ColorDot */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "react-dom":
+/*!****************************!*\
+  !*** external "react-dom" ***!
+  \****************************/
+/***/ ((module) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ColorDot", function() { return ColorDot; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
- // Can be used to display current color
-
-var ColorDot = function ColorDot(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    style: {
-      height: '10px',
-      width: '10px',
-      backgroundColor: props.color,
-      borderRadius: '50%',
-      display: 'inline-block'
-    }
-  });
-};
+module.exports = __WEBPACK_EXTERNAL_MODULE_react_dom__;
 
 /***/ }),
 
-/***/ "./components/MappingsInput.tsx":
-/*!**************************************!*\
-  !*** ./components/MappingsInput.tsx ***!
-  \**************************************/
-/*! exports provided: MappingsInput */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "../node_modules/immer/dist/immer.esm.mjs":
+/*!************************************************!*\
+  !*** ../node_modules/immer/dist/immer.esm.mjs ***!
+  \************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MappingsInput", function() { return MappingsInput; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @grafana/ui */ "@grafana/ui");
-/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_sortablejs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-sortablejs */ "../node_modules/react-sortablejs/dist/index.js");
-/* harmony import */ var react_sortablejs__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_sortablejs__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash */ "lodash");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Immer": () => (/* binding */ un),
+/* harmony export */   "applyPatches": () => (/* binding */ pn),
+/* harmony export */   "castDraft": () => (/* binding */ K),
+/* harmony export */   "castImmutable": () => (/* binding */ $),
+/* harmony export */   "createDraft": () => (/* binding */ ln),
+/* harmony export */   "current": () => (/* binding */ D),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "enableAllPlugins": () => (/* binding */ J),
+/* harmony export */   "enableES5": () => (/* binding */ N),
+/* harmony export */   "enableMapSet": () => (/* binding */ C),
+/* harmony export */   "enablePatches": () => (/* binding */ T),
+/* harmony export */   "finishDraft": () => (/* binding */ dn),
+/* harmony export */   "freeze": () => (/* binding */ d),
+/* harmony export */   "immerable": () => (/* binding */ L),
+/* harmony export */   "isDraft": () => (/* binding */ r),
+/* harmony export */   "isDraftable": () => (/* binding */ t),
+/* harmony export */   "nothing": () => (/* binding */ H),
+/* harmony export */   "original": () => (/* binding */ e),
+/* harmony export */   "produce": () => (/* binding */ fn),
+/* harmony export */   "produceWithPatches": () => (/* binding */ cn),
+/* harmony export */   "setAutoFreeze": () => (/* binding */ sn),
+/* harmony export */   "setUseProxies": () => (/* binding */ vn)
+/* harmony export */ });
+function n(n){for(var r=arguments.length,t=Array(r>1?r-1:0),e=1;e<r;e++)t[e-1]=arguments[e];if(true){var i=Y[n],o=i?"function"==typeof i?i.apply(null,t):i:"unknown error nr: "+n;throw Error("[Immer] "+o)}throw Error("[Immer] minified error nr: "+n+(t.length?" "+t.map((function(n){return"'"+n+"'"})).join(","):"")+". Find the full error at: https://bit.ly/3cXEKWf")}function r(n){return!!n&&!!n[Q]}function t(n){return!!n&&(function(n){if(!n||"object"!=typeof n)return!1;var r=Object.getPrototypeOf(n);if(null===r)return!0;var t=Object.hasOwnProperty.call(r,"constructor")&&r.constructor;return t===Object||"function"==typeof t&&Function.toString.call(t)===Z}(n)||Array.isArray(n)||!!n[L]||!!n.constructor[L]||s(n)||v(n))}function e(t){return r(t)||n(23,t),t[Q].t}function i(n,r,t){void 0===t&&(t=!1),0===o(n)?(t?Object.keys:nn)(n).forEach((function(e){t&&"symbol"==typeof e||r(e,n[e],n)})):n.forEach((function(t,e){return r(e,t,n)}))}function o(n){var r=n[Q];return r?r.i>3?r.i-4:r.i:Array.isArray(n)?1:s(n)?2:v(n)?3:0}function u(n,r){return 2===o(n)?n.has(r):Object.prototype.hasOwnProperty.call(n,r)}function a(n,r){return 2===o(n)?n.get(r):n[r]}function f(n,r,t){var e=o(n);2===e?n.set(r,t):3===e?(n.delete(r),n.add(t)):n[r]=t}function c(n,r){return n===r?0!==n||1/n==1/r:n!=n&&r!=r}function s(n){return X&&n instanceof Map}function v(n){return q&&n instanceof Set}function p(n){return n.o||n.t}function l(n){if(Array.isArray(n))return Array.prototype.slice.call(n);var r=rn(n);delete r[Q];for(var t=nn(r),e=0;e<t.length;e++){var i=t[e],o=r[i];!1===o.writable&&(o.writable=!0,o.configurable=!0),(o.get||o.set)&&(r[i]={configurable:!0,writable:!0,enumerable:o.enumerable,value:n[i]})}return Object.create(Object.getPrototypeOf(n),r)}function d(n,e){return void 0===e&&(e=!1),y(n)||r(n)||!t(n)?n:(o(n)>1&&(n.set=n.add=n.clear=n.delete=h),Object.freeze(n),e&&i(n,(function(n,r){return d(r,!0)}),!0),n)}function h(){n(2)}function y(n){return null==n||"object"!=typeof n||Object.isFrozen(n)}function b(r){var t=tn[r];return t||n(18,r),t}function m(n,r){tn[n]||(tn[n]=r)}function _(){return false||U||n(0),U}function j(n,r){r&&(b("Patches"),n.u=[],n.s=[],n.v=r)}function O(n){g(n),n.p.forEach(S),n.p=null}function g(n){n===U&&(U=n.l)}function w(n){return U={p:[],l:U,h:n,m:!0,_:0}}function S(n){var r=n[Q];0===r.i||1===r.i?r.j():r.O=!0}function P(r,e){e._=e.p.length;var i=e.p[0],o=void 0!==r&&r!==i;return e.h.g||b("ES5").S(e,r,o),o?(i[Q].P&&(O(e),n(4)),t(r)&&(r=M(e,r),e.l||x(e,r)),e.u&&b("Patches").M(i[Q].t,r,e.u,e.s)):r=M(e,i,[]),O(e),e.u&&e.v(e.u,e.s),r!==H?r:void 0}function M(n,r,t){if(y(r))return r;var e=r[Q];if(!e)return i(r,(function(i,o){return A(n,e,r,i,o,t)}),!0),r;if(e.A!==n)return r;if(!e.P)return x(n,e.t,!0),e.t;if(!e.I){e.I=!0,e.A._--;var o=4===e.i||5===e.i?e.o=l(e.k):e.o;i(3===e.i?new Set(o):o,(function(r,i){return A(n,e,o,r,i,t)})),x(n,o,!1),t&&n.u&&b("Patches").R(e,t,n.u,n.s)}return e.o}function A(e,i,o,a,c,s){if( true&&c===o&&n(5),r(c)){var v=M(e,c,s&&i&&3!==i.i&&!u(i.D,a)?s.concat(a):void 0);if(f(o,a,v),!r(v))return;e.m=!1}if(t(c)&&!y(c)){if(!e.h.F&&e._<1)return;M(e,c),i&&i.A.l||x(e,c)}}function x(n,r,t){void 0===t&&(t=!1),n.h.F&&n.m&&d(r,t)}function z(n,r){var t=n[Q];return(t?p(t):n)[r]}function I(n,r){if(r in n)for(var t=Object.getPrototypeOf(n);t;){var e=Object.getOwnPropertyDescriptor(t,r);if(e)return e;t=Object.getPrototypeOf(t)}}function k(n){n.P||(n.P=!0,n.l&&k(n.l))}function E(n){n.o||(n.o=l(n.t))}function R(n,r,t){var e=s(r)?b("MapSet").N(r,t):v(r)?b("MapSet").T(r,t):n.g?function(n,r){var t=Array.isArray(n),e={i:t?1:0,A:r?r.A:_(),P:!1,I:!1,D:{},l:r,t:n,k:null,o:null,j:null,C:!1},i=e,o=en;t&&(i=[e],o=on);var u=Proxy.revocable(i,o),a=u.revoke,f=u.proxy;return e.k=f,e.j=a,f}(r,t):b("ES5").J(r,t);return(t?t.A:_()).p.push(e),e}function D(e){return r(e)||n(22,e),function n(r){if(!t(r))return r;var e,u=r[Q],c=o(r);if(u){if(!u.P&&(u.i<4||!b("ES5").K(u)))return u.t;u.I=!0,e=F(r,c),u.I=!1}else e=F(r,c);return i(e,(function(r,t){u&&a(u.t,r)===t||f(e,r,n(t))})),3===c?new Set(e):e}(e)}function F(n,r){switch(r){case 2:return new Map(n);case 3:return Array.from(n)}return l(n)}function N(){function t(n,r){var t=s[n];return t?t.enumerable=r:s[n]=t={configurable:!0,enumerable:r,get:function(){var r=this[Q];return true&&f(r),en.get(r,n)},set:function(r){var t=this[Q]; true&&f(t),en.set(t,n,r)}},t}function e(n){for(var r=n.length-1;r>=0;r--){var t=n[r][Q];if(!t.P)switch(t.i){case 5:a(t)&&k(t);break;case 4:o(t)&&k(t)}}}function o(n){for(var r=n.t,t=n.k,e=nn(t),i=e.length-1;i>=0;i--){var o=e[i];if(o!==Q){var a=r[o];if(void 0===a&&!u(r,o))return!0;var f=t[o],s=f&&f[Q];if(s?s.t!==a:!c(f,a))return!0}}var v=!!r[Q];return e.length!==nn(r).length+(v?0:1)}function a(n){var r=n.k;if(r.length!==n.t.length)return!0;var t=Object.getOwnPropertyDescriptor(r,r.length-1);if(t&&!t.get)return!0;for(var e=0;e<r.length;e++)if(!r.hasOwnProperty(e))return!0;return!1}function f(r){r.O&&n(3,JSON.stringify(p(r)))}var s={};m("ES5",{J:function(n,r){var e=Array.isArray(n),i=function(n,r){if(n){for(var e=Array(r.length),i=0;i<r.length;i++)Object.defineProperty(e,""+i,t(i,!0));return e}var o=rn(r);delete o[Q];for(var u=nn(o),a=0;a<u.length;a++){var f=u[a];o[f]=t(f,n||!!o[f].enumerable)}return Object.create(Object.getPrototypeOf(r),o)}(e,n),o={i:e?5:4,A:r?r.A:_(),P:!1,I:!1,D:{},l:r,t:n,k:i,o:null,O:!1,C:!1};return Object.defineProperty(i,Q,{value:o,writable:!0}),i},S:function(n,t,o){o?r(t)&&t[Q].A===n&&e(n.p):(n.u&&function n(r){if(r&&"object"==typeof r){var t=r[Q];if(t){var e=t.t,o=t.k,f=t.D,c=t.i;if(4===c)i(o,(function(r){r!==Q&&(void 0!==e[r]||u(e,r)?f[r]||n(o[r]):(f[r]=!0,k(t)))})),i(e,(function(n){void 0!==o[n]||u(o,n)||(f[n]=!1,k(t))}));else if(5===c){if(a(t)&&(k(t),f.length=!0),o.length<e.length)for(var s=o.length;s<e.length;s++)f[s]=!1;else for(var v=e.length;v<o.length;v++)f[v]=!0;for(var p=Math.min(o.length,e.length),l=0;l<p;l++)o.hasOwnProperty(l)||(f[l]=!0),void 0===f[l]&&n(o[l])}}}}(n.p[0]),e(n.p))},K:function(n){return 4===n.i?o(n):a(n)}})}function T(){function e(n){if(!t(n))return n;if(Array.isArray(n))return n.map(e);if(s(n))return new Map(Array.from(n.entries()).map((function(n){return[n[0],e(n[1])]})));if(v(n))return new Set(Array.from(n).map(e));var r=Object.create(Object.getPrototypeOf(n));for(var i in n)r[i]=e(n[i]);return u(n,L)&&(r[L]=n[L]),r}function f(n){return r(n)?e(n):n}var c="add";m("Patches",{$:function(r,t){return t.forEach((function(t){for(var i=t.path,u=t.op,f=r,s=0;s<i.length-1;s++){var v=o(f),p=""+i[s];0!==v&&1!==v||"__proto__"!==p&&"constructor"!==p||n(24),"function"==typeof f&&"prototype"===p&&n(24),"object"!=typeof(f=a(f,p))&&n(15,i.join("/"))}var l=o(f),d=e(t.value),h=i[i.length-1];switch(u){case"replace":switch(l){case 2:return f.set(h,d);case 3:n(16);default:return f[h]=d}case c:switch(l){case 1:return"-"===h?f.push(d):f.splice(h,0,d);case 2:return f.set(h,d);case 3:return f.add(d);default:return f[h]=d}case"remove":switch(l){case 1:return f.splice(h,1);case 2:return f.delete(h);case 3:return f.delete(t.value);default:return delete f[h]}default:n(17,u)}})),r},R:function(n,r,t,e){switch(n.i){case 0:case 4:case 2:return function(n,r,t,e){var o=n.t,s=n.o;i(n.D,(function(n,i){var v=a(o,n),p=a(s,n),l=i?u(o,n)?"replace":c:"remove";if(v!==p||"replace"!==l){var d=r.concat(n);t.push("remove"===l?{op:l,path:d}:{op:l,path:d,value:p}),e.push(l===c?{op:"remove",path:d}:"remove"===l?{op:c,path:d,value:f(v)}:{op:"replace",path:d,value:f(v)})}}))}(n,r,t,e);case 5:case 1:return function(n,r,t,e){var i=n.t,o=n.D,u=n.o;if(u.length<i.length){var a=[u,i];i=a[0],u=a[1];var s=[e,t];t=s[0],e=s[1]}for(var v=0;v<i.length;v++)if(o[v]&&u[v]!==i[v]){var p=r.concat([v]);t.push({op:"replace",path:p,value:f(u[v])}),e.push({op:"replace",path:p,value:f(i[v])})}for(var l=i.length;l<u.length;l++){var d=r.concat([l]);t.push({op:c,path:d,value:f(u[l])})}i.length<u.length&&e.push({op:"replace",path:r.concat(["length"]),value:i.length})}(n,r,t,e);case 3:return function(n,r,t,e){var i=n.t,o=n.o,u=0;i.forEach((function(n){if(!o.has(n)){var i=r.concat([u]);t.push({op:"remove",path:i,value:n}),e.unshift({op:c,path:i,value:n})}u++})),u=0,o.forEach((function(n){if(!i.has(n)){var o=r.concat([u]);t.push({op:c,path:o,value:n}),e.unshift({op:"remove",path:o,value:n})}u++}))}(n,r,t,e)}},M:function(n,r,t,e){t.push({op:"replace",path:[],value:r===H?void 0:r}),e.push({op:"replace",path:[],value:n})}})}function C(){function r(n,r){function t(){this.constructor=n}a(n,r),n.prototype=(t.prototype=r.prototype,new t)}function e(n){n.o||(n.D=new Map,n.o=new Map(n.t))}function o(n){n.o||(n.o=new Set,n.t.forEach((function(r){if(t(r)){var e=R(n.A.h,r,n);n.p.set(r,e),n.o.add(e)}else n.o.add(r)})))}function u(r){r.O&&n(3,JSON.stringify(p(r)))}var a=function(n,r){return(a=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(n,r){n.__proto__=r}||function(n,r){for(var t in r)r.hasOwnProperty(t)&&(n[t]=r[t])})(n,r)},f=function(){function n(n,r){return this[Q]={i:2,l:r,A:r?r.A:_(),P:!1,I:!1,o:void 0,D:void 0,t:n,k:this,C:!1,O:!1},this}r(n,Map);var o=n.prototype;return Object.defineProperty(o,"size",{get:function(){return p(this[Q]).size}}),o.has=function(n){return p(this[Q]).has(n)},o.set=function(n,r){var t=this[Q];return u(t),p(t).has(n)&&p(t).get(n)===r||(e(t),k(t),t.D.set(n,!0),t.o.set(n,r),t.D.set(n,!0)),this},o.delete=function(n){if(!this.has(n))return!1;var r=this[Q];return u(r),e(r),k(r),r.t.has(n)?r.D.set(n,!1):r.D.delete(n),r.o.delete(n),!0},o.clear=function(){var n=this[Q];u(n),p(n).size&&(e(n),k(n),n.D=new Map,i(n.t,(function(r){n.D.set(r,!1)})),n.o.clear())},o.forEach=function(n,r){var t=this;p(this[Q]).forEach((function(e,i){n.call(r,t.get(i),i,t)}))},o.get=function(n){var r=this[Q];u(r);var i=p(r).get(n);if(r.I||!t(i))return i;if(i!==r.t.get(n))return i;var o=R(r.A.h,i,r);return e(r),r.o.set(n,o),o},o.keys=function(){return p(this[Q]).keys()},o.values=function(){var n,r=this,t=this.keys();return(n={})[V]=function(){return r.values()},n.next=function(){var n=t.next();return n.done?n:{done:!1,value:r.get(n.value)}},n},o.entries=function(){var n,r=this,t=this.keys();return(n={})[V]=function(){return r.entries()},n.next=function(){var n=t.next();if(n.done)return n;var e=r.get(n.value);return{done:!1,value:[n.value,e]}},n},o[V]=function(){return this.entries()},n}(),c=function(){function n(n,r){return this[Q]={i:3,l:r,A:r?r.A:_(),P:!1,I:!1,o:void 0,t:n,k:this,p:new Map,O:!1,C:!1},this}r(n,Set);var t=n.prototype;return Object.defineProperty(t,"size",{get:function(){return p(this[Q]).size}}),t.has=function(n){var r=this[Q];return u(r),r.o?!!r.o.has(n)||!(!r.p.has(n)||!r.o.has(r.p.get(n))):r.t.has(n)},t.add=function(n){var r=this[Q];return u(r),this.has(n)||(o(r),k(r),r.o.add(n)),this},t.delete=function(n){if(!this.has(n))return!1;var r=this[Q];return u(r),o(r),k(r),r.o.delete(n)||!!r.p.has(n)&&r.o.delete(r.p.get(n))},t.clear=function(){var n=this[Q];u(n),p(n).size&&(o(n),k(n),n.o.clear())},t.values=function(){var n=this[Q];return u(n),o(n),n.o.values()},t.entries=function(){var n=this[Q];return u(n),o(n),n.o.entries()},t.keys=function(){return this.values()},t[V]=function(){return this.values()},t.forEach=function(n,r){for(var t=this.values(),e=t.next();!e.done;)n.call(r,e.value,e.value,this),e=t.next()},n}();m("MapSet",{N:function(n,r){return new f(n,r)},T:function(n,r){return new c(n,r)}})}function J(){N(),C(),T()}function K(n){return n}function $(n){return n}var G,U,W="undefined"!=typeof Symbol&&"symbol"==typeof Symbol("x"),X="undefined"!=typeof Map,q="undefined"!=typeof Set,B="undefined"!=typeof Proxy&&void 0!==Proxy.revocable&&"undefined"!=typeof Reflect,H=W?Symbol.for("immer-nothing"):((G={})["immer-nothing"]=!0,G),L=W?Symbol.for("immer-draftable"):"__$immer_draftable",Q=W?Symbol.for("immer-state"):"__$immer_state",V="undefined"!=typeof Symbol&&Symbol.iterator||"@@iterator",Y={0:"Illegal state",1:"Immer drafts cannot have computed properties",2:"This object has been frozen and should not be mutated",3:function(n){return"Cannot use a proxy that has been revoked. Did you pass an object from inside an immer function to an async process? "+n},4:"An immer producer returned a new value *and* modified its draft. Either return a new value *or* modify the draft.",5:"Immer forbids circular references",6:"The first or second argument to `produce` must be a function",7:"The third argument to `produce` must be a function or undefined",8:"First argument to `createDraft` must be a plain object, an array, or an immerable object",9:"First argument to `finishDraft` must be a draft returned by `createDraft`",10:"The given draft is already finalized",11:"Object.defineProperty() cannot be used on an Immer draft",12:"Object.setPrototypeOf() cannot be used on an Immer draft",13:"Immer only supports deleting array indices",14:"Immer only supports setting array indices and the 'length' property",15:function(n){return"Cannot apply patch, path doesn't resolve: "+n},16:'Sets cannot have "replace" patches.',17:function(n){return"Unsupported patch operation: "+n},18:function(n){return"The plugin for '"+n+"' has not been loaded into Immer. To enable the plugin, import and call `enable"+n+"()` when initializing your application."},20:"Cannot use proxies if Proxy, Proxy.revocable or Reflect are not available",21:function(n){return"produce can only be called on things that are draftable: plain objects, arrays, Map, Set or classes that are marked with '[immerable]: true'. Got '"+n+"'"},22:function(n){return"'current' expects a draft, got: "+n},23:function(n){return"'original' expects a draft, got: "+n},24:"Patching reserved attributes like __proto__, prototype and constructor is not allowed"},Z=""+Object.prototype.constructor,nn="undefined"!=typeof Reflect&&Reflect.ownKeys?Reflect.ownKeys:void 0!==Object.getOwnPropertySymbols?function(n){return Object.getOwnPropertyNames(n).concat(Object.getOwnPropertySymbols(n))}:Object.getOwnPropertyNames,rn=Object.getOwnPropertyDescriptors||function(n){var r={};return nn(n).forEach((function(t){r[t]=Object.getOwnPropertyDescriptor(n,t)})),r},tn={},en={get:function(n,r){if(r===Q)return n;var e=p(n);if(!u(e,r))return function(n,r,t){var e,i=I(r,t);return i?"value"in i?i.value:null===(e=i.get)||void 0===e?void 0:e.call(n.k):void 0}(n,e,r);var i=e[r];return n.I||!t(i)?i:i===z(n.t,r)?(E(n),n.o[r]=R(n.A.h,i,n)):i},has:function(n,r){return r in p(n)},ownKeys:function(n){return Reflect.ownKeys(p(n))},set:function(n,r,t){var e=I(p(n),r);if(null==e?void 0:e.set)return e.set.call(n.k,t),!0;if(!n.P){var i=z(p(n),r),o=null==i?void 0:i[Q];if(o&&o.t===t)return n.o[r]=t,n.D[r]=!1,!0;if(c(t,i)&&(void 0!==t||u(n.t,r)))return!0;E(n),k(n)}return n.o[r]===t&&"number"!=typeof t&&(void 0!==t||r in n.o)||(n.o[r]=t,n.D[r]=!0,!0)},deleteProperty:function(n,r){return void 0!==z(n.t,r)||r in n.t?(n.D[r]=!1,E(n),k(n)):delete n.D[r],n.o&&delete n.o[r],!0},getOwnPropertyDescriptor:function(n,r){var t=p(n),e=Reflect.getOwnPropertyDescriptor(t,r);return e?{writable:!0,configurable:1!==n.i||"length"!==r,enumerable:e.enumerable,value:t[r]}:e},defineProperty:function(){n(11)},getPrototypeOf:function(n){return Object.getPrototypeOf(n.t)},setPrototypeOf:function(){n(12)}},on={};i(en,(function(n,r){on[n]=function(){return arguments[0]=arguments[0][0],r.apply(this,arguments)}})),on.deleteProperty=function(r,t){return true&&isNaN(parseInt(t))&&n(13),on.set.call(this,r,t,void 0)},on.set=function(r,t,e){return true&&"length"!==t&&isNaN(parseInt(t))&&n(14),en.set.call(this,r[0],t,e,r[0])};var un=function(){function e(r){var e=this;this.g=B,this.F=!0,this.produce=function(r,i,o){if("function"==typeof r&&"function"!=typeof i){var u=i;i=r;var a=e;return function(n){var r=this;void 0===n&&(n=u);for(var t=arguments.length,e=Array(t>1?t-1:0),o=1;o<t;o++)e[o-1]=arguments[o];return a.produce(n,(function(n){var t;return(t=i).call.apply(t,[r,n].concat(e))}))}}var f;if("function"!=typeof i&&n(6),void 0!==o&&"function"!=typeof o&&n(7),t(r)){var c=w(e),s=R(e,r,void 0),v=!0;try{f=i(s),v=!1}finally{v?O(c):g(c)}return"undefined"!=typeof Promise&&f instanceof Promise?f.then((function(n){return j(c,o),P(n,c)}),(function(n){throw O(c),n})):(j(c,o),P(f,c))}if(!r||"object"!=typeof r){if(void 0===(f=i(r))&&(f=r),f===H&&(f=void 0),e.F&&d(f,!0),o){var p=[],l=[];b("Patches").M(r,f,p,l),o(p,l)}return f}n(21,r)},this.produceWithPatches=function(n,r){if("function"==typeof n)return function(r){for(var t=arguments.length,i=Array(t>1?t-1:0),o=1;o<t;o++)i[o-1]=arguments[o];return e.produceWithPatches(r,(function(r){return n.apply(void 0,[r].concat(i))}))};var t,i,o=e.produce(n,r,(function(n,r){t=n,i=r}));return"undefined"!=typeof Promise&&o instanceof Promise?o.then((function(n){return[n,t,i]})):[o,t,i]},"boolean"==typeof(null==r?void 0:r.useProxies)&&this.setUseProxies(r.useProxies),"boolean"==typeof(null==r?void 0:r.autoFreeze)&&this.setAutoFreeze(r.autoFreeze)}var i=e.prototype;return i.createDraft=function(e){t(e)||n(8),r(e)&&(e=D(e));var i=w(this),o=R(this,e,void 0);return o[Q].C=!0,g(i),o},i.finishDraft=function(r,t){var e=r&&r[Q]; true&&(e&&e.C||n(9),e.I&&n(10));var i=e.A;return j(i,t),P(void 0,i)},i.setAutoFreeze=function(n){this.F=n},i.setUseProxies=function(r){r&&!B&&n(20),this.g=r},i.applyPatches=function(n,t){var e;for(e=t.length-1;e>=0;e--){var i=t[e];if(0===i.path.length&&"replace"===i.op){n=i.value;break}}e>-1&&(t=t.slice(e+1));var o=b("Patches").$;return r(n)?o(n,t):this.produce(n,(function(n){return o(n,t)}))},e}(),an=new un,fn=an.produce,cn=an.produceWithPatches.bind(an),sn=an.setAutoFreeze.bind(an),vn=an.setUseProxies.bind(an),pn=an.applyPatches.bind(an),ln=an.createDraft.bind(an),dn=an.finishDraft.bind(an);/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (fn);
+//# sourceMappingURL=immer.esm.js.map
 
 
+/***/ })
 
-
-
-
-var Mapping = function Mapping(_a) {
-  var mapping = _a.mapping,
-      onDelete = _a.onDelete;
-  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["ButtonGroup"], null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Button"], {
-    icon: "times",
-    variant: "link",
-    size: "sm",
-    onClick: onDelete
-  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Button"], {
-    variant: "link",
-    size: "sm"
-  }, mapping));
-};
-
-var MappingsInput = function MappingsInput(_a) {
-  var mappings = _a.mappings,
-      onChange = _a.onChange;
-
-  var _b = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(''), 2),
-      newMapping = _b[0],
-      setNewMapping = _b[1];
-
-  var addMapping = function addMapping() {
-    var mapping = newMapping.trim();
-
-    if (mapping.length === 0) {
-      return;
-    }
-
-    onChange(mappings.concat(mapping));
-    setNewMapping('');
-  };
-
-  var deleteMapping = function deleteMapping(index) {
-    var newMappings = mappings.filter(function (mapping, i) {
-      return i !== index;
-    });
-    onChange(newMappings);
-  };
-
-  var addonAfter = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Button"], {
-    variant: "secondary",
-    onClick: addMapping
-  }, "Add");
-  var sortableMappings = mappings.map(function (mapping) {
-    return {
-      id: Object(lodash__WEBPACK_IMPORTED_MODULE_4__["uniqueId"])('mapping'),
-      value: mapping
-    };
-  });
-
-  var handleKeyPress = function handleKeyPress(event) {
-    if (event.key === 'Enter') {
-      addMapping();
-    }
-  };
-
-  var invalidMapping = function invalidMapping() {
-    return mappings.includes(newMapping) || newMapping.length === 0;
-  };
-
-  var generateErrorMessage = function generateErrorMessage() {
-    if (mappings.includes(newMapping)) {
-      return newMapping + " is already in the list";
-    }
-
-    return '';
-  };
-
-  var _c = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(sortableMappings), 2),
-      state = _c[0],
-      setState = _c[1];
-
-  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_sortablejs__WEBPACK_IMPORTED_MODULE_3__["ReactSortable"], {
-    list: state,
-    setList: setState
-  }, sortableMappings.map(function (mapping, index) {
-    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Mapping, {
-      mapping: mapping.value,
-      key: index,
-      onDelete: function onDelete() {
-        return deleteMapping(index);
-      }
-    });
-  })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    invalid: invalidMapping(),
-    error: generateErrorMessage()
-  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Input"], {
-    addonAfter: addonAfter,
-    onKeyPress: handleKeyPress,
-    onChange: function onChange(e) {
-      return setNewMapping(e.currentTarget.value);
-    },
-    value: newMapping
-  })));
-};
-
-/***/ }),
-
-/***/ "./customEditors/EditorMappingItem.tsx":
-/*!*********************************************!*\
-  !*** ./customEditors/EditorMappingItem.tsx ***!
-  \*********************************************/
-/*! exports provided: EditorMappingItem */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditorMappingItem", function() { return EditorMappingItem; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @grafana/ui */ "@grafana/ui");
-/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! immer */ "../node_modules/immer/dist/immer.esm.js");
-/* harmony import */ var components_ColorDot__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! components/ColorDot */ "./components/ColorDot.tsx");
-
-
-
-
-var EditorMappingItem = function EditorMappingItem(props) {
-  var _a;
-
-  var mapping = props.mapping,
-      index = props.index,
-      operatorsOptions = props.operatorsOptions,
-      onChange = props.onChange,
-      onDelete = props.onDelete;
-
-  function updateMapping(draftState) {
-    var updatedMapping = Object(immer__WEBPACK_IMPORTED_MODULE_2__["default"])(mapping, draftState);
-    onChange(updatedMapping, index);
-  }
-
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["HorizontalGroup"], null, "Mapping ", index + 1, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["IconButton"], {
-    name: "trash-alt",
-    size: "sm",
-    surface: "header",
-    onClick: function onClick() {
-      return onDelete(index);
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "ID"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Input"], {
-    value: mapping.id,
-    onChange: function onChange(event) {
-      updateMapping(function (mapping) {
-        mapping.id = event.currentTarget.value;
-      });
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Description"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["TextArea"], {
-    value: mapping.description,
-    onChange: function onChange(event) {
-      updateMapping(function (mapping) {
-        mapping.description = event.currentTarget.value;
-      });
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Operator"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Select"], {
-    value: mapping.operator,
-    options: operatorsOptions,
-    onChange: function onChange(selectableValue) {
-      updateMapping(function (mapping) {
-        mapping.operator = selectableValue.value;
-      });
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Compare to"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Input"], {
-    value: mapping.compareTo,
-    onChange: function onChange(event) {
-      updateMapping(function (mapping) {
-        mapping.compareTo = event.currentTarget.value;
-      });
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Font Color"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["ColorPicker"], {
-    color: (_a = mapping.values) === null || _a === void 0 ? void 0 : _a.fontColor,
-    onChange: function onChange(color) {
-      updateMapping(function (mapping) {
-        mapping.values.fontColor = color;
-      });
-    },
-    enableNamedColors: true
-  }, function (_a) {
-    var ref = _a.ref,
-        showColorPicker = _a.showColorPicker,
-        hideColorPicker = _a.hideColorPicker;
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Button"], {
-      ref: ref,
-      onMouseLeave: hideColorPicker,
-      onClick: showColorPicker,
-      variant: "secondary"
-    }, "Open color picker ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(components_ColorDot__WEBPACK_IMPORTED_MODULE_3__["ColorDot"], {
-      color: mapping.values.fontColor
-    }));
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Background Color"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["ColorPicker"], {
-    color: mapping.values.backgroundColor,
-    onChange: function onChange(color) {
-      updateMapping(function (mapping) {
-        mapping.values.backgroundColor = color;
-      });
-    },
-    enableNamedColors: true
-  }, function (_a) {
-    var ref = _a.ref,
-        showColorPicker = _a.showColorPicker,
-        hideColorPicker = _a.hideColorPicker;
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Button"], {
-      ref: ref,
-      onMouseLeave: hideColorPicker,
-      onClick: showColorPicker,
-      variant: "secondary"
-    }, "Open color picker ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(components_ColorDot__WEBPACK_IMPORTED_MODULE_3__["ColorDot"], {
-      color: mapping.values.backgroundColor
-    }));
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Show"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Switch"], {
-    value: mapping.values.visible,
-    onChange: function onChange(event) {
-      updateMapping(function (mapping) {
-        mapping.values.visible = event.currentTarget.checked;
-      });
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Bold"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Switch"], {
-    value: mapping.values.bold,
-    onChange: function onChange(event) {
-      updateMapping(function (mapping) {
-        mapping.values.bold = event.currentTarget.checked;
-      });
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Background Blink"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Switch"], {
-    value: mapping.values.backgroundBlink,
-    onChange: function onChange(event) {
-      updateMapping(function (mapping) {
-        mapping.values.backgroundBlink = event.currentTarget.checked;
-      });
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Value Blink"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Switch"], {
-    value: mapping.values.valueBlink,
-    onChange: function onChange(event) {
-      updateMapping(function (mapping) {
-        mapping.values.valueBlink = event.currentTarget.checked;
-      });
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Override value"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Input"], {
-    value: mapping.values.overrideValue,
-    onChange: function onChange(event) {
-      updateMapping(function (mapping) {
-        mapping.values.overrideValue = event.currentTarget.value;
-      });
-    }
-  })));
-};
-
-/***/ }),
-
-/***/ "./customEditors/EditorMappingList.tsx":
-/*!*********************************************!*\
-  !*** ./customEditors/EditorMappingList.tsx ***!
-  \*********************************************/
-/*! exports provided: EditorMappingList */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditorMappingList", function() { return EditorMappingList; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var emotion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! emotion */ "emotion");
-/* harmony import */ var emotion__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(emotion__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @grafana/ui */ "@grafana/ui");
-/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_grafana_ui__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _EditorMappingItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./EditorMappingItem */ "./customEditors/EditorMappingItem.tsx");
-/* harmony import */ var MappingOperators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! MappingOperators */ "./MappingOperators.ts");
-
-
-
-
-
-
-
-var getRandomID = function getRandomID() {
-  var randomString = Math.random().toString(36).substr(2, 5);
-  return 'mapping-' + randomString;
-};
-
-var operatorsOptions = MappingOperators__WEBPACK_IMPORTED_MODULE_5__["default"].map(function (mappingOperator) {
-  return {
-    label: mappingOperator.operator,
-    value: mappingOperator.id,
-    description: mappingOperator.description
-  };
-});
-var EditorMappingList = function EditorMappingList(props) {
-  var mappings = props.mappings,
-      onChange = props.onChange;
-  var theme = Object(_grafana_ui__WEBPACK_IMPORTED_MODULE_3__["useTheme"])();
-  var styles = getStyles(theme);
-  var defaultNewMapping = {
-    id: getRandomID(),
-    description: '',
-    compareTo: 0,
-    operator: MappingOperators__WEBPACK_IMPORTED_MODULE_5__["default"][0].id,
-    values: {
-      fontColor: '#fff',
-      backgroundColor: '#000',
-      valueBlink: false,
-      backgroundBlink: false,
-      bold: false,
-      visible: true,
-      overrideValue: undefined
-    }
-  };
-
-  var onMappingChange = function onMappingChange(mapping, index) {
-    mappings[index] = mapping;
-    onChange(mappings);
-  };
-
-  var onMappingDelete = function onMappingDelete(index) {
-    mappings.splice(index, 1);
-    onChange(mappings);
-  };
-
-  var addNewMapping = function addNewMapping() {
-    mappings.push(defaultNewMapping);
-    onChange(mappings);
-  };
-
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, mappings && mappings.map(function (mapping, index) {
-    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-      className: styles.mappingItemWrapper,
-      key: index
-    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_EditorMappingItem__WEBPACK_IMPORTED_MODULE_4__["EditorMappingItem"], {
-      mapping: mapping,
-      operatorsOptions: operatorsOptions,
-      onChange: onMappingChange,
-      onDelete: onMappingDelete,
-      index: index
-    }));
-  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-    className: styles.addButtonStyle,
-    onClick: addNewMapping,
-    variant: "secondary",
-    size: "md"
-  }, "Add New"));
-};
-var getStyles = Object(_grafana_ui__WEBPACK_IMPORTED_MODULE_3__["stylesFactory"])(function (theme) {
-  return {
-    mappingItemWrapper: Object(emotion__WEBPACK_IMPORTED_MODULE_2__["css"])(templateObject_1 || (templateObject_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n    margin-bottom: 16px;\n    padding: 8px;\n    background-color: ", ";\n  "], ["\n    margin-bottom: 16px;\n    padding: 8px;\n    background-color: ", ";\n  "])), theme.colors.bg2),
-    addButtonStyle: Object(emotion__WEBPACK_IMPORTED_MODULE_2__["css"])(templateObject_2 || (templateObject_2 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n    /* margin-left: 8px; */\n  "], ["\n    /* margin-left: 8px; */\n  "])))
-  };
-});
-var templateObject_1, templateObject_2;
-
-/***/ }),
-
-/***/ "./customEditors/EditorSensorItem.tsx":
-/*!********************************************!*\
-  !*** ./customEditors/EditorSensorItem.tsx ***!
-  \********************************************/
-/*! exports provided: EditorSensorItem */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditorSensorItem", function() { return EditorSensorItem; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @grafana/ui */ "@grafana/ui");
-/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! immer */ "../node_modules/immer/dist/immer.esm.js");
-/* harmony import */ var components_ColorDot__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! components/ColorDot */ "./components/ColorDot.tsx");
-/* harmony import */ var components_MappingsInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! components/MappingsInput */ "./components/MappingsInput.tsx");
-
-
-
-
-
-var EditorSensorItem = function EditorSensorItem(props) {
-  var sensor = props.sensor,
-      index = props.index,
-      onChange = props.onChange,
-      onDelete = props.onDelete;
-
-  function updateSensor(draftState) {
-    var updatedMapping = Object(immer__WEBPACK_IMPORTED_MODULE_2__["default"])(sensor, draftState);
-    onChange(updatedMapping, index);
-  }
-
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["HorizontalGroup"], null, "Sensor ", props.index + 1, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["IconButton"], {
-    name: "trash-alt",
-    size: "sm",
-    surface: "header",
-    onClick: function onClick() {
-      return onDelete(index);
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Query ID",
-    description: "Set this as query ID OR the query alias below"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Input"], {
-    value: sensor.query.id,
-    onChange: function onChange(event) {
-      updateSensor(function (sensor) {
-        sensor.query.id = event.currentTarget.value;
-      });
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Query Alias",
-    description: "If both alias and ID are set, ID has precedence"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Input"], {
-    value: sensor.query.alias,
-    onChange: function onChange(event) {
-      updateSensor(function (sensor) {
-        sensor.query.alias = event.currentTarget.value;
-      });
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Mapping IDs",
-    description: "Select IDs of mappings you want to use for this sensor. First valid mapping will be applied. List can be reordered by dragging."
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(components_MappingsInput__WEBPACK_IMPORTED_MODULE_4__["MappingsInput"], {
-    mappings: sensor.mappingIds,
-    onChange: function onChange(mappings) {
-      updateSensor(function (sensor) {
-        sensor.mappingIds = mappings;
-      });
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Name"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Input"], {
-    value: sensor.name,
-    onChange: function onChange(event) {
-      updateSensor(function (sensor) {
-        sensor.name = event.currentTarget.value;
-      });
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Link"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Input"], {
-    value: sensor.link,
-    onChange: function onChange(event) {
-      updateSensor(function (sensor) {
-        sensor.link = event.currentTarget.value;
-      });
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Show"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Switch"], {
-    value: sensor.visible,
-    onChange: function onChange(event) {
-      updateSensor(function (sensor) {
-        sensor.visible = event.currentTarget.checked;
-      });
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Unit Type"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["UnitPicker"], {
-    value: sensor.unit,
-    onChange: function onChange(unit) {
-      updateSensor(function (sensor) {
-        sensor.unit = unit;
-      });
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Font Color"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["ColorPicker"], {
-    color: sensor.fontColor,
-    onChange: function onChange(color) {
-      updateSensor(function (sensor) {
-        sensor.fontColor = color;
-      });
-    },
-    enableNamedColors: true
-  }, function (_a) {
-    var ref = _a.ref,
-        showColorPicker = _a.showColorPicker,
-        hideColorPicker = _a.hideColorPicker;
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Button"], {
-      ref: ref,
-      onMouseLeave: hideColorPicker,
-      onClick: showColorPicker,
-      variant: "secondary"
-    }, "Open color picker ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(components_ColorDot__WEBPACK_IMPORTED_MODULE_3__["ColorDot"], {
-      color: sensor.fontColor
-    }));
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Size"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Input"], {
-    value: sensor.sensorsTextSize,
-    type: "number",
-    onChange: function onChange(event) {
-      updateSensor(function (sensor) {
-        sensor.sensorsTextSize = Number.parseInt(event.currentTarget.value, 10);
-      });
-    }
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    label: "Decimals"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_1__["Input"], {
-    value: sensor.decimals,
-    type: "number",
-    onChange: function onChange(event) {
-      updateSensor(function (sensor) {
-        sensor.decimals = Number.parseInt(event.currentTarget.value, 10);
-      });
-    }
-  })));
-};
-
-/***/ }),
-
-/***/ "./customEditors/EditorSensorList.tsx":
-/*!********************************************!*\
-  !*** ./customEditors/EditorSensorList.tsx ***!
-  \********************************************/
-/*! exports provided: EditorSensorList */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditorSensorList", function() { return EditorSensorList; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var emotion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! emotion */ "emotion");
-/* harmony import */ var emotion__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(emotion__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @grafana/ui */ "@grafana/ui");
-/* harmony import */ var _grafana_ui__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_grafana_ui__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _EditorSensorItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./EditorSensorItem */ "./customEditors/EditorSensorItem.tsx");
-
-
-
-
-
-var defaultNewSensor = {
-  name: 'Name',
-  query: {
-    id: 'A',
-    alias: ''
-  },
-  visible: true,
-  backgroundColor: '#000',
-  fontColor: '#FFF',
-  bold: false,
-  link: '',
-  position: {
-    x: 50,
-    y: 50
-  },
-  mappingIds: [],
-  unit: undefined,
-  sensorsTextSize: 25,
-  decimals: 2,
-  valueBlink: false,
-  backgroundBlink: false
-};
-var EditorSensorList = function EditorSensorList(props) {
-  var sensors = props.sensors,
-      onChange = props.onChange;
-  var theme = Object(_grafana_ui__WEBPACK_IMPORTED_MODULE_3__["useTheme"])();
-  var styles = getStyles(theme);
-
-  var onSensorChange = function onSensorChange(sensor, index) {
-    sensors[index] = sensor;
-    onChange(sensors);
-  };
-
-  var onSensorDelete = function onSensorDelete(index) {
-    sensors.splice(index, 1);
-    onChange(sensors);
-  };
-
-  var addNewSensor = function addNewSensor() {
-    sensors.push(defaultNewSensor);
-    onChange(sensors);
-  };
-
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, sensors && sensors.map(function (sensor, index) {
-    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-      className: styles.sensorItemWrapperStyle,
-      key: index
-    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_EditorSensorItem__WEBPACK_IMPORTED_MODULE_4__["EditorSensorItem"], {
-      sensor: sensor,
-      onChange: onSensorChange,
-      onDelete: onSensorDelete,
-      index: index
-    }));
-  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-    className: styles.addButtonStyle,
-    onClick: addNewSensor,
-    variant: "secondary",
-    size: "md"
-  }, "Add New"));
-};
-var getStyles = Object(_grafana_ui__WEBPACK_IMPORTED_MODULE_3__["stylesFactory"])(function (theme) {
-  return {
-    sensorItemWrapperStyle: Object(emotion__WEBPACK_IMPORTED_MODULE_2__["css"])(templateObject_1 || (templateObject_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n    margin-bottom: 16px;\n    padding: 8px;\n    background-color: ", ";\n  "], ["\n    margin-bottom: 16px;\n    padding: 8px;\n    background-color: ", ";\n  "])), theme.colors.bg2),
-    addButtonStyle: Object(emotion__WEBPACK_IMPORTED_MODULE_2__["css"])(templateObject_2 || (templateObject_2 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n    /* margin-left: 8px; */\n  "], ["\n    /* margin-left: 8px; */\n  "])))
-  };
-});
-var templateObject_1, templateObject_2;
-
-/***/ }),
-
-/***/ "./migrationHandler.ts":
-/*!*****************************!*\
-  !*** ./migrationHandler.ts ***!
-  \*****************************/
-/*! exports provided: migrationHandler */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "migrationHandler", function() { return migrationHandler; });
-var migrationHandler = function migrationHandler(panel) {
-  // const previousVersion = parseFloat(panel.pluginVersion || '1.0.0');
-  var options = panel.options;
-  var sensors = options.sensors || [];
-
-  if (sensors) {
-    sensors.map(function (sensor) {
-      if (sensor.mappingId) {
-        sensor.mappingIds = [sensor.mappingId];
-        delete sensor.mappingId;
-      } else {
-        sensor.mappingIds = [];
-      }
-    });
-  }
-
-  return options;
-};
-
-/***/ }),
-
-/***/ "./module.tsx":
 /*!********************!*\
   !*** ./module.tsx ***!
   \********************/
-/*! exports provided: plugin */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "plugin", function() { return plugin; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "plugin": () => (/* binding */ plugin)
+/* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _grafana_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @grafana/data */ "@grafana/data");
 /* harmony import */ var _grafana_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_grafana_data__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ImageItPanel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ImageItPanel */ "./ImageItPanel.tsx");
+/* harmony import */ var _TrafficLightsRevivalPanel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TrafficLightsRevivalPanel */ "./TrafficLightsRevivalPanel.tsx");
 /* harmony import */ var customEditors_EditorSensorList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! customEditors/EditorSensorList */ "./customEditors/EditorSensorList.tsx");
 /* harmony import */ var customEditors_EditorMappingList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! customEditors/EditorMappingList */ "./customEditors/EditorMappingList.tsx");
-/* harmony import */ var _migrationHandler__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./migrationHandler */ "./migrationHandler.ts");
 
 
 
 
 
-
-var plugin = new _grafana_data__WEBPACK_IMPORTED_MODULE_1__["PanelPlugin"](_ImageItPanel__WEBPACK_IMPORTED_MODULE_2__["ImageItPanel"]).setMigrationHandler(_migrationHandler__WEBPACK_IMPORTED_MODULE_5__["migrationHandler"]).setPanelOptions(function (builder) {
+var plugin = new _grafana_data__WEBPACK_IMPORTED_MODULE_1__.PanelPlugin(_TrafficLightsRevivalPanel__WEBPACK_IMPORTED_MODULE_2__.TrafficLightsRevivalPanel).setPanelOptions(function (builder) {
   var panelOptionsBuilder = builder.addTextInput({
     path: 'imageUrl',
     name: 'Image URL',
     description: 'URL of background image',
-    defaultValue: 'https://i.ibb.co/tLXrjb6/imageit.png'
+    defaultValue: 'false'
   }).addBooleanSwitch({
     path: 'forceImageRefresh',
     name: 'Force image refresh',
@@ -8459,7 +8612,7 @@ var plugin = new _grafana_data__WEBPACK_IMPORTED_MODULE_1__["PanelPlugin"](_Imag
     category: ['Sensors'],
     defaultValue: [],
     editor: function editor(props) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(customEditors_EditorSensorList__WEBPACK_IMPORTED_MODULE_3__["EditorSensorList"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(customEditors_EditorSensorList__WEBPACK_IMPORTED_MODULE_3__.EditorSensorList, {
         sensors: props.value,
         onChange: props.onChange
       });
@@ -8472,7 +8625,7 @@ var plugin = new _grafana_data__WEBPACK_IMPORTED_MODULE_1__["PanelPlugin"](_Imag
     category: ['Mappings'],
     defaultValue: [],
     editor: function editor(props) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(customEditors_EditorMappingList__WEBPACK_IMPORTED_MODULE_4__["EditorMappingList"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(customEditors_EditorMappingList__WEBPACK_IMPORTED_MODULE_4__.EditorMappingList, {
         mappings: props.value,
         onChange: props.onChange
       });
@@ -8480,74 +8633,10 @@ var plugin = new _grafana_data__WEBPACK_IMPORTED_MODULE_1__["PanelPlugin"](_Imag
   });
   return panelOptionsBuilder;
 });
+})();
 
-/***/ }),
-
-/***/ "@grafana/data":
-/*!********************************!*\
-  !*** external "@grafana/data" ***!
-  \********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__grafana_data__;
-
-/***/ }),
-
-/***/ "@grafana/ui":
-/*!******************************!*\
-  !*** external "@grafana/ui" ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__grafana_ui__;
-
-/***/ }),
-
-/***/ "emotion":
-/*!**************************!*\
-  !*** external "emotion" ***!
-  \**************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_emotion__;
-
-/***/ }),
-
-/***/ "lodash":
-/*!*************************!*\
-  !*** external "lodash" ***!
-  \*************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_lodash__;
-
-/***/ }),
-
-/***/ "react":
-/*!************************!*\
-  !*** external "react" ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_react__;
-
-/***/ }),
-
-/***/ "react-dom":
-/*!****************************!*\
-  !*** external "react-dom" ***!
-  \****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_react_dom__;
-
-/***/ })
-
-/******/ })});;
+/******/ 	return __webpack_exports__;
+/******/ })()
+;
+});;
 //# sourceMappingURL=module.js.map

@@ -1,17 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PanelProps, getFieldDisplayValues, ReducerID } from '@grafana/data';
-import { SimpleOptions } from './types/SimpleOptions';
 import { css, cx } from 'emotion';
 import { uniqueId, cloneDeep } from 'lodash';
-// import { stylesFactory, useTheme } from '@grafana/ui';
-import { stylesFactory, useTheme } from '@grafana/ui';
+import { stylesFactory, useTheme2 } from '@grafana/ui';
+import { SimpleOptions } from './types/SimpleOptions';
 import { Sensor } from './Sensor';
 import { Mapping } from './types/Mapping';
 import SensorType from './types/Sensor';
 
 interface Props extends PanelProps<SimpleOptions> {}
 
-export const ImageItPanel: React.FC<Props> = ({
+export const TrafficLightsRevivalPanel: React.FC<Props> = ({
   options,
   data,
   width,
@@ -21,7 +20,7 @@ export const ImageItPanel: React.FC<Props> = ({
   replaceVariables,
 }) => {
   const { forceImageRefresh, lockSensors, mappings, sensors, sensorsColorGray, sensorsColorRed, sensorsColorYellow, sensorsColorGreen } = options;
-  const theme = useTheme();
+  const theme = useTheme2();
   const styles = getStyles();
 
   const imageRef = useRef<HTMLImageElement>(null);
@@ -61,7 +60,7 @@ export const ImageItPanel: React.FC<Props> = ({
   return (
     <div className={styles.wrapper}>
       <div
-        id="imageItBgImage"
+        id="TrafficLightsRevivalBgImage"
         className={cx(
           styles.imageWrapper,
           css`
@@ -71,8 +70,6 @@ export const ImageItPanel: React.FC<Props> = ({
       >
         {sensors &&
           sensors.map((sensor: SensorType, index: number) => {
-            // Get serie for sensor based on refId or alias fields
-            // let value: Number | undefined = undefined;
             const serie = data.series.find((serie) =>
               sensor.query.id ? sensor.query.id === serie.refId : sensor.query.alias === serie.name
             );
@@ -93,7 +90,6 @@ export const ImageItPanel: React.FC<Props> = ({
               value = fieldDisplay.display.numeric;
             }
 
-            // Get mappings by ids
             const sensorMappings: Mapping[] = sensor.mappingIds
               .map((mappingId) => mappings.find((mapping: Mapping) => mappingId === mapping.id))
               .filter((mapping) => typeof mapping !== 'undefined') as Mapping[];
