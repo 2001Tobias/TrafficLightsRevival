@@ -21,16 +21,21 @@
     "links": [
       {
         "name": "Website",
-        "url": "https://github.com/grafana/grafana-starter-panel"
+        "url": "https://github.com/2001Tobias/TrafficLightsRevival"
       },
       {
         "name": "License",
-        "url": "https://github.com/grafana/grafana-starter-panel/blob/master/LICENSE"
+        "url": "https://github.com/2001Tobias/TrafficLightsRevival/blob/main/LICENSE"
       }
     ],
-    "screenshots": [],
-    "version": "1.0.0",
-    "updated": "2022-09-01"
+    "screenshots": [
+      {
+        "name": "Sensors",
+        "path": "img/TrafficLightsRevival_Screenshot.png"
+      }
+    ],
+    "version": "1.2.0",
+    "updated": "2022-09-06"
   },
   "dependencies": {
     "grafanaDependency": ">=7.0.0",
